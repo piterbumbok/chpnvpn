@@ -6,10 +6,11 @@ import { useState, useEffect } from "react"
 import { Sun, Moon } from "lucide-react"
 import { useLanguage } from "@/context/language-context"
 import { useTheme } from "@/context/theme-context"
+import LanguageSwitcher from "./language-switcher"
 
 export default function Header() {
   const [mounted, setMounted] = useState(false)
-  const { language, setLanguage, t } = useLanguage()
+  const { t } = useLanguage()
   const { theme, setTheme } = useTheme()
 
   useEffect(() => {
@@ -18,10 +19,6 @@ export default function Header() {
 
   const toggleTheme = () => {
     setTheme(theme === "light" ? "dark" : "light")
-  }
-
-  const toggleLanguage = () => {
-    setLanguage(language === "ru" ? "en" : "ru")
   }
 
   // Если компонент не смонтирован, возвращаем заглушку для предотвращения проблем с гидратацией
@@ -33,15 +30,9 @@ export default function Header() {
             <div className="w-8 h-8 relative mr-2"></div>
             <span className="text-lg font-medium">Chupapi Munyanya</span>
           </div>
-          <div className="flex items-center space-x-6">
-            <nav className="hidden md:flex space-x-6">
-              <span className="text-blue-600 dark:text-blue-400 font-medium"></span>
-              <span className="text-gray-600 dark:text-gray-300"></span>
-            </nav>
-            <div className="flex items-center space-x-3">
-              <div className="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-medium"></div>
-              <div className="w-8 h-8 flex items-center justify-center text-gray-600 dark:text-gray-300"></div>
-            </div>
+          <div className="flex items-center space-x-3">
+            <div className="bg-blue-500 text-white rounded-lg px-3 py-2"></div>
+            <div className="w-8 h-8 flex items-center justify-center text-gray-600 dark:text-gray-300"></div>
           </div>
         </div>
       </header>
@@ -58,33 +49,15 @@ export default function Header() {
           <span className="text-lg font-medium text-gray-900 dark:text-white">Chupapi Munyanya</span>
         </Link>
 
-        <div className="flex items-center space-x-6">
-          <nav className="hidden md:flex space-x-6">
-            <Link href="/" className="text-blue-600 dark:text-blue-400 font-medium">
-              {t("header.home")}
-            </Link>
-            <Link
-              href="/pricing"
-              className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
-            >
-              {t("header.pricing")}
-            </Link>
-          </nav>
-
-          <div className="flex items-center space-x-3">
-            <button
-              onClick={toggleLanguage}
-              className="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-medium"
-            >
-              {language.toUpperCase()}
-            </button>
-            <button
-              onClick={toggleTheme}
-              className="w-8 h-8 flex items-center justify-center text-gray-600 dark:text-gray-300"
-            >
-              {theme === "light" ? <Moon size={20} /> : <Sun size={20} />}
-            </button>
-          </div>
+        <div className="flex items-center space-x-3">
+          <LanguageSwitcher />
+          <button
+            onClick={toggleTheme}
+            className="w-10 h-10 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
+            aria-label={theme === "light" ? "Switch to dark theme" : "Switch to light theme"}
+          >
+            {theme === "light" ? <Moon size={20} /> : <Sun size={20} />}
+          </button>
         </div>
       </div>
     </header>

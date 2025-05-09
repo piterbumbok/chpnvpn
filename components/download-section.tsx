@@ -18,7 +18,6 @@ export default function DownloadSection() {
           />
         </svg>
       ),
-      description: t("platform.ios.desc"),
     },
     {
       name: t("platform.android"),
@@ -32,7 +31,6 @@ export default function DownloadSection() {
           />
         </svg>
       ),
-      description: t("platform.android.desc"),
     },
     {
       name: t("platform.windows"),
@@ -45,7 +43,6 @@ export default function DownloadSection() {
           />
         </svg>
       ),
-      description: t("platform.windows.desc"),
     },
     {
       name: t("platform.macos"),
@@ -58,7 +55,6 @@ export default function DownloadSection() {
           />
         </svg>
       ),
-      description: t("platform.macos.desc"),
     },
     {
       name: t("platform.linux"),
@@ -77,7 +73,6 @@ export default function DownloadSection() {
           />
         </svg>
       ),
-      description: t("platform.linux.desc"),
     },
     {
       name: t("platform.router"),
@@ -90,7 +85,6 @@ export default function DownloadSection() {
           />
         </svg>
       ),
-      description: t("platform.router.desc"),
     },
   ]
 
@@ -111,8 +105,7 @@ export default function DownloadSection() {
               <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center text-blue-500 mb-4">
                 {platform.icon}
               </div>
-              <h3 className="text-lg font-medium mb-2">{platform.name}</h3>
-              <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">{platform.description}</p>
+              <h3 className="text-lg font-medium mb-4">{platform.name}</h3>
               <div className="flex items-center text-gray-500 dark:text-gray-400 text-sm mt-auto">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -141,8 +134,7 @@ export default function DownloadSection() {
               <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center text-blue-500 mb-4">
                 {platform.icon}
               </div>
-              <h3 className="text-lg font-medium mb-2">{platform.name}</h3>
-              <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">{platform.description}</p>
+              <h3 className="text-lg font-medium mb-4">{platform.name}</h3>
               <div className="flex items-center text-gray-500 dark:text-gray-400 text-sm mt-auto">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
