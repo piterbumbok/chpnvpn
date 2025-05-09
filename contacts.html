@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="icon" href="https://chpnvpn.com/logotg.png" type="image/png">
+    <link rel="apple-touch-icon" href="https://chpnvpn.com/logotg.png">
+    <link rel="shortcut icon" href="https://chpnvpn.com/logotg.png" type="image/png">
+    <title>Контакты - Chupapi Munyanya VPN</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Apple-inspired color palette */
+            --primary: #0071e3;
+            --primary-light: #2b8eff;
+            --primary-dark: #0058b9;
+            --primary-gradient: linear-gradient(135deg, #0071e3 0%, #42a1ff 100%);
+            --secondary: #f56300;
+            --secondary-light: #ff8534;
+            --secondary-gradient: linear-gradient(135deg, #f56300 0%, #ff8534 100%);
+            --accent: #5e5ce6;
+            --accent-light: #7d7aff;
+            --accent-gradient: linear-gradient(135deg, #5e5ce6 0%, #7d7aff 100%);
+            --success: #34c759;
+            --success-light: #4cd66a;
+            --success-gradient: linear-gradient(135deg, #34c759 0%, #4cd66a 100%);
+            --error: #ff3b30;
+            --error-light: #ff6b61;
+            --error-gradient: linear-gradient(135deg, #ff3b30 0%, #ff6b61 100%);
+            --warning: #ff9500;
+            --text: #1d1d1f;
+            --text-secondary: #515154;
+            --text-tertiary: #86868b;
+            --background: #ffffff;
+            --card: rgba(255, 255, 255, 0.8);
+            --card-hover: rgba(255, 255, 255, 0.9);
+            --border: rgba(0, 0, 0, 0.1);
+            --border-light: rgba(0, 0, 0, 0.05);
+            --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.05);
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 8px 16px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.12);
+            --shadow-glow: 0 0 20px rgba(0, 113, 227, 0.2);
+        }
+
+        /* Dark theme */
+        .dark-theme {
+            --primary: #0a84ff;
+            --primary-light: #409cff;
+            --primary-dark: #0071e3;
+            --secondary: #ff9f0a;
+            --secondary-light: #ffb340;
+            --accent: #5e5ce6;
+            --accent-light: #7d7aff;
+            --success: #30d158;
+            --success-light: #4cd66a;
+            --error: #ff453a;
+            --error-light: #ff6961;
+            --text: #f5f5f7;
+            --text-secondary: #a1a1a6;
+            --text-tertiary: #6e6e73;
+            --background: #000000;
+            --card: rgba(28, 28, 30, 0.8);
+            --card-hover: rgba(44, 44, 46, 0.8);
+            --border: rgba(255, 255, 255, 0.1);
+            --border-light: rgba(255, 255, 255, 0.05);
+            --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.2);
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 8px 16px rgba(0, 0, 0, 0.4);
+            --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.5);
+            --shadow-glow: 0 0 20px rgba(10, 132, 255, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        html, body {
+            height: 100%;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        body {
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.5;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            font-size: 17px;
+            overflow-x: hidden;
+            letter-spacing: -0.01em;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Page structure */
+        .page-content {
+            flex: 1 0 auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 36px;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .logo:hover img {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .logo h1 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text);
+            letter-spacing: -0.02em;
+        }
+
+        .header-controls {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .theme-toggle, .lang-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: var(--card);
+            border: 1px solid var(--border);
+            cursor: pointer;
+            color: var(--text);
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .theme-toggle:hover, .lang-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .theme-toggle:active, .lang-toggle:active {
+            transform: translateY(0);
+        }
+
+        .theme-icon, .lang-icon {
+            font-size: 16px;
+            transition: transform 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .lang-toggle {
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .lang-toggle::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--primary-gradient);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+
+        .lang-toggle:hover::before {
+            opacity: 0.1;
+        }
+
+        .lang-toggle.active {
+            background: var(--primary-gradient);
+            color: white;
+            border-color: transparent;
+        }
+
+        .lang-toggle.active::before {
+            opacity: 0;
+        }
+
+        /* Main navigation */
+        .main-nav {
+            margin: 0 auto;
+        }
+
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 24px;
+        }
+
+        .main-nav ul li a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            padding: 5px 0;
+            transition: color 0.3s ease;
+        }
+
+        .main-nav ul li a:hover {
+            color: var(--primary);
+        }
+
+        .main-nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .main-nav ul li a:hover::after,
+        .main-nav ul li a.active::after {
+            width: 100%;
+        }
+
+        /* Responsive navigation */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-wrap: wrap;
+            }
+            
+            .main-nav {
+                order: 3;
+                margin: 10px 0 0;
+                width: 100%;
+            }
+            
+            .main-nav ul {
+                justify-content: center;
+            }
+        }
+
+        /* Breadcrumbs */
+        .breadcrumbs {
+            padding: 16px 0;
+            background-color: var(--background);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .breadcrumbs-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .breadcrumbs a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumbs a:hover {
+            color: var(--primary);
+        }
+
+        .breadcrumbs span {
+            color: var(--text-tertiary);
+            font-size: 14px;
+        }
+
+        .breadcrumbs .current {
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        /* Contact section */
+        .contact-section {
+            padding: 60px 0;
+            position: relative;
+        }
+
+        .contact-title {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text);
+            text-align: center;
+            letter-spacing: -0.02em;
+        }
+
+        .contact-subtitle {
+            font-size: 18px;
+            color: var(--text-secondary);
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.5;
+        }
+
+        .contact-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        .contact-card {
+            background-color: var(--card);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            height: 100%;
+            min-height: 280px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg), var(--shadow-glow);
+            border-color: var(--primary-light);
+        }
+
+        .contact-card-icon {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--primary-gradient);
+            border-radius: 16px;
+            font-size: 24px;
+            color: white;
+            box-shadow: var(--shadow);
+        }
+
+        .contact-card h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--text);
+        }
+
+        .contact-card p {
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            line-height: 1.5;
+        }
+
+        .contact-card a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.3s ease;
+            position: absolute;
+            bottom: 15px;
+        }
+
+        .contact-card a:hover {
+            color: var(--primary-light);
+            transform: translateX(4px);
+        }
+
+        .contact-card a svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Legal info section */
+        .legal-section {
+            background-color: var(--card);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 60px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .legal-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--text);
+            text-align: center;
+        }
+
+        .legal-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .legal-item {
+            text-align: center;
+        }
+
+        .legal-item h4 {
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: var(--text-secondary);
+        }
+
+        .legal-item p {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        /* Decorative elements */
+        .blob {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: 0;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .blob-1 {
+            background: var(--primary);
+            width: 400px;
+            height: 400px;
+            top: -200px;
+            left: -200px;
+            opacity: 0.1;
+        }
+
+        .blob-2 {
+            background: var(--accent);
+            width: 500px;
+            height: 500px;
+            bottom: -250px;
+            right: -250px;
+            opacity: 0.1;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--card);
+            padding: 40px 0 20px;
+            border-top: 1px solid var(--border);
+            position: relative;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            flex-shrink: 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 16px;
+            font-size: 16px;
+            color: var(--text);
+            font-weight: 600;
+            position: relative;
+            display: inline-block;
+            letter-spacing: -0.01em;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-section ul li a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            display: inline-block;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--primary);
+            transform: translateX(4px);
+        }
+
+        .payment-methods {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .payment-method {
+            background-color: var(--background);
+            padding: 6px 12px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            font-size: 14px;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .payment-method:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 16px;
+            border-top: 1px solid var(--border);
+            color: var(--text-tertiary);
+            font-size: 14px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Language switch animation */
+        @keyframes langSwitchIn {
+            0% { transform: translateY(20px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes langSwitchOut {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(-20px); opacity: 0; }
+        }
+
+        .lang-switch-in {
+            animation: langSwitchIn 0.5s forwards;
+        }
+
+        .lang-switch-out {
+            animation: langSwitchOut 0.5s forwards;
+        }
+
+        /* Adaptive styles */
+        @media (max-width: 992px) {
+            .contact-title {
+                font-size: 36px;
+            }
+            
+            .contact-subtitle {
+                font-size: 16px;
+            }
+            
+            .legal-section {
+                padding: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .contact-section {
+                padding: 40px 0;
+            }
+            
+            .contact-title {
+                font-size: 30px;
+            }
+            
+            .contact-subtitle {
+                font-size: 15px;
+                margin-bottom: 30px;
+            }
+            
+            .contact-cards {
+                margin-bottom: 40px;
+            }
+            
+            .contact-card {
+                padding: 24px;
+            }
+            
+            .contact-card-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+                margin-bottom: 16px;
+            }
+            
+            .legal-section {
+                padding: 24px;
+                margin-bottom: 40px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .contact-section {
+                padding: 30px 0;
+            }
+            
+            .contact-title {
+                font-size: 26px;
+            }
+            
+            .contact-subtitle {
+                font-size: 14px;
+                margin-bottom: 24px;
+            }
+            
+            .contact-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-card h3 {
+                font-size: 18px;
+            }
+            
+            .legal-section {
+                padding: 20px;
+                margin-bottom: 30px;
+            }
+            
+            .legal-title {
+                font-size: 20px;
+            }
+            
+            .legal-info {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+
+        /* Добавить дополнительные медиа-запросы для очень маленьких экранов */
+        @media (max-width: 360px) {
+            .contact-title {
+                font-size: 22px;
+            }
+            
+            .contact-card {
+                padding: 16px;
+            }
+            
+            .contact-card-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 18px;
+            }
+        }
+
+        .main-nav ul li a.active {
+            color: var(--primary);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="page-content">
+        <header>
+            <div class="container">
+                <div class="header-container">
+                    <a href="index.html" class="logo">
+                        <img src="https://chpnvpn.com/logotg.png" alt="Chupapi Munyanya VPN Logo">
+                        <h1>Chupapi Munyanya VPN</h1>
+                    </a>
+                    <nav class="main-nav">
+                        <ul>
+                            <li><a href="index.html" data-lang-key="nav-home">Главная</a></li>
+                            <li><a href="pricing.html" data-lang-key="nav-pricing">Тарифы</a></li>
+                            <li><a href="contacts.html" data-lang-key="contacts" class="active">Контакты</a></li>
+                        </ul>
+                    </nav>
+                    <div class="header-controls">
+                        <button class="lang-toggle" aria-label="Switch language" data-lang="ru">RU</button>
+                        <button class="theme-toggle" aria-label="Toggle theme">
+                            <span class="theme-icon">☀️</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section class="contact-section">
+            <div class="blob blob-1"></div>
+            <div class="blob blob-2"></div>
+            <div class="container">
+                <h1 class="contact-title" data-lang-key="contact-title">Свяжитесь с нами</h1>
+                <p class="contact-subtitle" data-lang-key="contact-subtitle">Мы всегда готовы помочь вам с любыми вопросами о нашем VPN-сервисе. Выберите удобный для вас способ связи.</p>
+                
+                <div class="contact-cards">
+                    <div class="contact-card">
+                        <div class="contact-card-icon">✉️</div>
+                        <h3 data-lang-key="email-title">Электронная почта</h3>
+                        <p data-lang-key="email-description">Напишите нам по электронной почте, и мы ответим в течение 24 часов.</p>
+                        <a href="mailto:support@chpnvpn.com">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                            support@chpnvpn.com
+                        </a>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-card-icon">💬</div>
+                        <h3 data-lang-key="telegram-title">Telegram</h3>
+                        <p data-lang-key="telegram-description">Получите быстрый ответ через наш Telegram канал поддержки.</p>
+                        <a href="https://t.me/chpnvpn" target="_blank">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21.198 2.433a2.242 2.242 0 0 0-1.022.215l-8.609 3.33c-2.068.8-4.133 1.598-5.724 2.21a405.15 405.15 0 0 1-2.849 1.09c-.42.147-.99.332-1.473.901-.728.968.193 1.798.919 2.286 1.61.516 3.275 1.009 4.654 1.472.846 1.467 1.816 3.021 2.802 4.516l-1.349 3.348s-.332.838.635.838c.607 0 .942-.276 1.359-.483.61-.307 1.193-.623 1.8-.944a60.9 60.9 0 0 0 1.886-.769l.72-.294s1.336 8.631 1.414 9.494c.097 1.068.404 1.607 1.34 1.607 .666 0 1.885-.257 2.263-1.223 .281-.129.281-.3.256-.385-.354-1.396-1.827-6.452-2.526-9.083-.238-.912.256-.866.331-.866l8.599-5.021c.485-.286 1.022-.591 1.211-1.031 .588-1.392-.221-2.533-1.354-2.533zm.48 1.503c.245.199.2.62-.139.84L12.95 9.831c-1.349.8-1.125 1.92-1.501 4.186-.105.725-.219 1.016-.699 1.016-.56 0-.494-1.109-.398-2.134l.91-5.087 9.26-3.058c.344-.108.75-.172 1.059-.108.148.028.273.063.328.141z"/>
+                            </svg>
+                            t.me/chpnvpn
+                        </a>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-card-icon">❓</div>
+                        <h3 data-lang-key="faq-title">Часто задаваемые вопросы</h3>
+                        <p data-lang-key="faq-description">Посетите нашу страницу FAQ, чтобы найти ответы на распространенные вопросы.</p>
+                        <a href="faq.html">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                            </svg>
+                            <span data-lang-key="view-faq">Просмотреть FAQ</span>
+                        </a>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4 data-lang-key="legal-info">Юридическая информация</h4>
+                    <ul>
+                        <li>
+                            <a href="aml-kyc-policy.html" data-lang-key="aml-kyc-policy">Политика AML/KYC</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 data-lang-key="support">Поддержка</h4>
+                    <ul>
+                        <li>
+                            <span data-lang-key="faq" style="color: var(--text-tertiary); font-size: 14px;">Часто задаваемые вопросы (скоро)</span>
+                        </li>
+                        <li>
+                            <span data-lang-key="installation-guide" style="color: var(--text-tertiary); font-size: 14px;">Руководство по установке (скоро)</span>
+                        </li>
+                        <li>
+                            <a href="contacts.html" data-lang-key="contacts">Контакты</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 data-lang-key="contact-us">Связаться с нами</h4>
+                    <ul>
+                        <li>
+                            <a href="mailto:support@chpnvpn.com" data-lang-key="email">Email: support@chpnvpn.com</a>
+                        </li>
+                        <li>
+                            <a href="https://t.me/chpnvpn" target="_blank" data-lang-key="telegram">Telegram: t.me/chpnvpn</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 data-lang-key="payment-methods">Способы оплаты</h4>
+                    <div class="payment-methods">
+                        <div class="payment-method">Visa</div>
+                        <div class="payment-method">MasterCard</div>
+                        <div class="payment-method">PayPal</div>
+                        <div class="payment-method">Bitcoin</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p data-lang-key="copyright">© 2025 Chupapi Munyanya VPN. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Language translations
+        const translations = {
+            'ru': {
+                'home': 'Главная',
+                'contacts': 'Контакты',
+                'contact-title': 'Свяжитесь с нами',
+                'contact-subtitle': 'Мы всегда готовы помочь вам с любыми вопросами о нашем VPN-сервисе. Выберите удобный для вас способ связи.',
+                'email-title': 'Электронная почта',
+                'email-description': 'Напишите нам по электронной почте, и мы ответим в течение 24 часов.',
+                'telegram-title': 'Telegram',
+                'telegram-description': 'Получите быстрый ответ через наш Telegram канал поддержки.',
+                'faq-title': 'Часто задаваемые вопросы',
+                'faq-description': 'Посетите нашу страницу FAQ, чтобы найти ответы на распространенные вопросы.',
+                'view-faq': 'Просмотреть FAQ',
+                'legal-title': 'Юридическая информация',
+                'company-name': 'Название компании',
+                'tax-id': 'ИНН',
+                'contact-us': 'Связаться с нами',
+                'email': 'Email: support@chpnvpn.com',
+                'telegram': 'Telegram: t.me/chpnvpn',
+                'legal-info': 'Юридическая информация',
+                'privacy-policy': 'Политика конфиденциальности',
+                'terms-of-use': 'Условия использования',
+                'cookie-policy': 'Политика использования файлов cookie',
+                'support': 'Поддержка',
+                'help-center': 'Центр помощи',
+                'faq': 'Часто задаваемые вопросы',
+                'installation-guide': 'Руководство по установке',
+                'payment-methods': 'Способы оплаты',
+                'copyright': '© 2025 Chupapi Munyanya VPN. Все права защищены.',
+                'aml-kyc-policy': 'Политика AML/KYC',
+                'contacts': 'Контакты',
+                'faq': 'Часто задаваемые вопросы (скоро)',
+                'installation-guide': 'Руководство по установке (скоро)',
+                'nav-home': 'Главная',
+                'nav-pricing': 'Тарифы'
+            },
+            'en': {
+                'home': 'Home',
+                'contacts': 'Contacts',
+                'contact-title': 'Contact Us',
+                'contact-subtitle': 'We are always ready to help you with any questions about our VPN service. Choose the most convenient way to contact us.',
+                'email-title': 'Email',
+                'email-description': 'Send us an email and we will respond within 24 hours.',
+                'telegram-title': 'Telegram',
+                'telegram-description': 'Get a quick response through our Telegram support channel.',
+                'faq-title': 'Frequently Asked Questions',
+                'faq-description': 'Visit our FAQ page to find answers to common questions.',
+                'view-faq': 'View FAQ',
+                'legal-title': 'Legal Information',
+                'company-name': 'Company Name',
+                'tax-id': 'Tax ID',
+                'contact-us': 'Contact Us',
+                'email': 'Email: support@chpnvpn.com',
+                'telegram': 'Telegram: t.me/chpnvpn',
+                'legal-info': 'Legal Information',
+                'privacy-policy': 'Privacy Policy',
+                'terms-of-use': 'Terms of Use',
+                'cookie-policy': 'Cookie Policy',
+                'support': 'Support',
+                'help-center': 'Help Center',
+                'faq': 'FAQ',
+                'installation-guide': 'Installation Guide',
+                'payment-methods': 'Payment Methods',
+                'copyright': '© 2025 Chupapi Munyanya VPN. All rights reserved.',
+                'aml-kyc-policy': 'AML/KYC Policy',
+                'contacts': 'Contacts',
+                'faq': 'FAQ (coming soon)',
+                'installation-guide': 'Installation Guide (coming soon)',
+                'nav-home': 'Home',
+                'nav-pricing': 'Pricing'
+            }
+        };
+
+        // Function to switch language
+        function switchLanguage(lang) {
+            const elements = document.querySelectorAll('[data-lang-key]');
+            
+            elements.forEach(element => {
+                const key = element.getAttribute('data-lang-key');
+                if (translations[lang] && translations[lang][key]) {
+                    // Add animation classes
+                    element.classList.add('lang-switch-out');
+                    
+                    setTimeout(() => {
+                        // If the content contains HTML, use innerHTML, otherwise use textContent
+                        if (translations[lang][key].includes('<')) {
+                            element.innerHTML = translations[lang][key];
+                        } else {
+                            element.textContent = translations[lang][key];
+                        }
+                        
+                        element.classList.remove('lang-switch-out');
+                        element.classList.add('lang-switch-in');
+                        
+                        setTimeout(() => {
+                            element.classList.remove('lang-switch-in');
+                        }, 500);
+                    }, 300);
+                }
+            });
+            
+            // Update language toggle button
+            const langToggle = document.querySelector('.lang-toggle');
+            if (langToggle) {
+                langToggle.textContent = lang.toUpperCase();
+                langToggle.setAttribute('data-lang', lang);
+            }
+            
+            // Store the selected language in localStorage
+            localStorage.setItem('language', lang);
+            
+            // Update html lang attribute
+            document.documentElement.lang = lang;
+            
+            // Update active state for language buttons
+            document.querySelectorAll('.lang-toggle').forEach(btn => {
+                if (btn.getAttribute('data-lang') === lang) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+        }
+
+        // Language toggle functionality
+        const langToggle = document.querySelector('.lang-toggle');
+        if (langToggle) {
+            langToggle.addEventListener('click', () => {
+                const currentLang = langToggle.getAttribute('data-lang');
+                const newLang = currentLang === 'ru' ? 'en' : 'ru';
+                switchLanguage(newLang);
+            });
+        }
+
+        // Theme toggle functionality
+        const themeToggle = document.querySelector('.theme-toggle');
+        const themeIcon = document.querySelector('.theme-icon');
+
+        // Check saved theme preferences or use preferred color scheme
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        // Set initial theme
+        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+            document.documentElement.classList.add('dark-theme');
+            document.body.classList.add('dark-theme');
+            if (themeIcon) themeIcon.textContent = '🌙';
+        }
+
+        // Toggle theme
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                document.documentElement.classList.toggle('dark-theme');
+                document.body.classList.toggle('dark-theme');
+                
+                if (document.body.classList.contains('dark-theme')) {
+                    if (themeIcon) themeIcon.textContent = '🌙';
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    if (themeIcon) themeIcon.textContent = '☀️';
+                    localStorage.setItem('theme', 'light');
+                }
+                
+                // Add rotation animation
+                if (themeIcon) {
+                    themeIcon.style.transform = 'rotate(360deg)';
+                    setTimeout(() => {
+                        themeIcon.style.transform = 'rotate(0)';
+                    }, 300);
+                }
+            });
+        }
+
+        // Check saved language preference
+        const savedLanguage = localStorage.getItem('language');
+        if (savedLanguage) {
+            switchLanguage(savedLanguage);
+        } else {
+            // Set default language based on browser language
+            const browserLang = navigator.language.split('-')[0];
+            if (browserLang === 'ru') {
+                switchLanguage('ru');
+            } else {
+                switchLanguage('en');
+            }
+        }
+    </script>
+</body>
+</html>

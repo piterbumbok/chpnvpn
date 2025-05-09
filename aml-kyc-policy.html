@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="icon" href="https://chpnvpn.com/logotg.png" type="image/png">
+    <link rel="apple-touch-icon" href="https://chpnvpn.com/logotg.png">
+    <link rel="shortcut icon" href="https://chpnvpn.com/logotg.png" type="image/png">
+    <title>Политика AML/KYC - Chupapi Munyanya VPN</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Apple-inspired color palette */
+            --primary: #0071e3;
+            --primary-light: #2b8eff;
+            --primary-dark: #0058b9;
+            --primary-gradient: linear-gradient(135deg, #0071e3 0%, #42a1ff 100%);
+            --secondary: #f56300;
+            --secondary-light: #ff8534;
+            --secondary-gradient: linear-gradient(135deg, #f56300 0%, #ff8534 100%);
+            --accent: #5e5ce6;
+            --accent-light: #7d7aff;
+            --accent-gradient: linear-gradient(135deg, #5e5ce6 0%, #7d7aff 100%);
+            --success: #34c759;
+            --success-light: #4cd66a;
+            --success-gradient: linear-gradient(135deg, #34c759 0%, #4cd66a 100%);
+            --warning: #ff9500;
+            --error: #ff3b30;
+            --text: #1d1d1f;
+            --text-secondary: #515154;
+            --text-tertiary: #86868b;
+            --background: #ffffff;
+            --card: rgba(255, 255, 255, 0.8);
+            --card-hover: rgba(255, 255, 255, 0.9);
+            --border: rgba(0, 0, 0, 0.1);
+            --border-light: rgba(0, 0, 0, 0.05);
+            --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.05);
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 8px 16px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.12);
+            --shadow-glow: 0 0 20px rgba(0, 113, 227, 0.2);
+        }
+
+        /* Dark theme */
+        .dark-theme {
+            --primary: #0a84ff;
+            --primary-light: #409cff;
+            --primary-dark: #0071e3;
+            --secondary: #ff9f0a;
+            --secondary-light: #ffb340;
+            --accent: #5e5ce6;
+            --accent-light: #7d7aff;
+            --success: #30d158;
+            --success-light: #4cd66a;
+            --text: #f5f5f7;
+            --text-secondary: #a1a1a6;
+            --text-tertiary: #6e6e73;
+            --background: #000000;
+            --card: rgba(28, 28, 30, 0.8);
+            --card-hover: rgba(44, 44, 46, 0.8);
+            --border: rgba(255, 255, 255, 0.1);
+            --border-light: rgba(255, 255, 255, 0.05);
+            --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.2);
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 8px 16px rgba(0, 0, 0, 0.4);
+            --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.5);
+            --shadow-glow: 0 0 20px rgba(10, 132, 255, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        html, body {
+            height: 100%;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        body {
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.5;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            font-size: 17px;
+            overflow-x: hidden;
+            letter-spacing: -0.01em;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Page structure */
+        .page-content {
+            flex: 1 0 auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 36px;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .logo:hover img {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .logo h1 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text);
+            letter-spacing: -0.02em;
+        }
+
+        .header-controls {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .theme-toggle, .lang-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: var(--card);
+            border: 1px solid var(--border);
+            cursor: pointer;
+            color: var(--text);
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .theme-toggle:hover, .lang-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .theme-toggle:active, .lang-toggle:active {
+            transform: translateY(0);
+        }
+
+        .theme-icon, .lang-icon {
+            font-size: 16px;
+            transition: transform 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .lang-toggle {
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .lang-toggle::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--primary-gradient);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+
+        .lang-toggle:hover::before {
+            opacity: 0.1;
+        }
+
+        .lang-toggle.active {
+            background: var(--primary-gradient);
+            color: white;
+            border-color: transparent;
+        }
+
+        .lang-toggle.active::before {
+            opacity: 0;
+        }
+
+        /* Main navigation */
+        .main-nav {
+            margin: 0 auto;
+        }
+
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 24px;
+        }
+
+        .main-nav ul li a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            padding: 5px 0;
+            transition: color 0.3s ease;
+        }
+
+        .main-nav ul li a:hover {
+            color: var(--primary);
+        }
+
+        .main-nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .main-nav ul li a:hover::after,
+        .main-nav ul li a.active::after {
+            width: 100%;
+        }
+
+        /* Responsive navigation */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-wrap: wrap;
+            }
+            
+            .main-nav {
+                order: 3;
+                margin: 10px 0 0;
+                width: 100%;
+            }
+            
+            .main-nav ul {
+                justify-content: center;
+            }
+        }
+
+        /* Policy section */
+        .policy-section {
+            padding: 60px 0;
+            position: relative;
+        }
+
+        .policy-title {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text);
+            text-align: center;
+            letter-spacing: -0.02em;
+        }
+
+        .policy-title span {
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .policy-subtitle {
+            font-size: 18px;
+            color: var(--text-secondary);
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            line-height: 1.5;
+        }
+
+        .policy-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--card);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .policy-section-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin: 30px 0 15px;
+            color: var(--text);
+            position: relative;
+            padding-left: 16px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .policy-section-title:first-child {
+            margin-top: 0;
+        }
+
+        .policy-text {
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .policy-list {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+
+        .policy-list li {
+            margin-bottom: 10px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .policy-highlight {
+            background-color: var(--background);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            border: 1px solid var(--border-light);
+        }
+
+        .policy-highlight-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--text);
+        }
+
+        .policy-highlight-text {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .policy-contact {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .policy-contact-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--text);
+        }
+
+        .policy-contact-text {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .policy-contact-button {
+            background: var(--primary-gradient);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: var(--shadow);
+            text-decoration: none;
+        }
+
+        .policy-contact-button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md), var(--shadow-glow);
+        }
+
+        .policy-contact-button svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Decorative elements */
+        .blob {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: 0;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .blob-1 {
+            background: var(--primary);
+            width: 400px;
+            height: 400px;
+            top: -200px;
+            left: -200px;
+            opacity: 0.1;
+        }
+
+        .blob-2 {
+            background: var(--accent);
+            width: 500px;
+            height: 500px;
+            bottom: -250px;
+            right: -250px;
+            opacity: 0.1;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--card);
+            padding: 40px 0 20px;
+            border-top: 1px solid var(--border);
+            position: relative;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            flex-shrink: 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 16px;
+            font-size: 16px;
+            color: var(--text);
+            font-weight: 600;
+            position: relative;
+            display: inline-block;
+            letter-spacing: -0.01em;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-section ul li a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            display: inline-block;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--primary);
+            transform: translateX(4px);
+        }
+
+        .payment-methods {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .payment-method {
+            background-color: var(--background);
+            padding: 6px 12px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            font-size: 14px;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .payment-method:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 16px;
+            border-top: 1px solid var(--border);
+            color: var(--text-tertiary);
+            font-size: 14px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Language switch animation */
+        @keyframes langSwitchIn {
+            0% { transform: translateY(20px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes langSwitchOut {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(-20px); opacity: 0; }
+        }
+
+        .lang-switch-in {
+            animation: langSwitchIn 0.5s forwards;
+        }
+
+        .lang-switch-out {
+            animation: langSwitchOut 0.5s forwards;
+        }
+
+        /* Adaptive styles */
+        @media (max-width: 992px) {
+            .policy-title {
+                font-size: 36px;
+            }
+            
+            .policy-subtitle {
+                font-size: 16px;
+            }
+            
+            .policy-content {
+                padding: 30px;
+            }
+            
+            .policy-section-title {
+                font-size: 22px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .policy-section {
+                padding: 40px 0;
+            }
+            
+            .policy-title {
+                font-size: 30px;
+            }
+            
+            .policy-subtitle {
+                font-size: 15px;
+                margin-bottom: 30px;
+            }
+            
+            .policy-content {
+                padding: 25px;
+            }
+            
+            .policy-section-title {
+                font-size: 20px;
+                padding-left: 12px;
+            }
+            
+            .policy-highlight {
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .policy-section {
+                padding: 30px 0;
+            }
+            
+            .policy-title {
+                font-size: 26px;
+            }
+            
+            .policy-subtitle {
+                font-size: 14px;
+                margin-bottom: 24px;
+            }
+            
+            .policy-content {
+                padding: 20px;
+                border-radius: 16px;
+            }
+            
+            .policy-section-title {
+                font-size: 18px;
+                margin: 25px 0 12px;
+            }
+            
+            .policy-text, .policy-list li, .policy-highlight-text {
+                font-size: 15px;
+            }
+            
+            .policy-highlight {
+                padding: 15px;
+                margin: 15px 0;
+            }
+            
+            .policy-highlight-title {
+                font-size: 16px;
+            }
+            
+            .policy-contact {
+                margin-top: 30px;
+            }
+            
+            .policy-contact-title {
+                font-size: 18px;
+            }
+            
+            .policy-contact-button {
+                width: 100%;
+            }
+        }
+
+        /* Добавить дополнительные медиа-запросы для очень маленьких экранов */
+        @media (max-width: 360px) {
+            .policy-title {
+                font-size: 22px;
+            }
+            
+            .policy-content {
+                padding: 15px;
+            }
+            
+            .policy-section-title {
+                font-size: 17px;
+            }
+            
+            .policy-text, .policy-list li, .policy-highlight-text {
+                font-size: 14px;
+            }
+        }
+
+        .main-nav ul li a.active {
+            color: var(--primary);
+        }
+
+        .main-nav ul li a.active::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-content">
+        <header>
+            <div class="container">
+                <div class="header-container">
+                    <a href="index.html" class="logo">
+                        <img src="https://chpnvpn.com/logotg.png" alt="Chupapi Munyanya VPN Logo">
+                        <h1>Chupapi Munyanya VPN</h1>
+                    </a>
+                    <nav class="main-nav">
+                        <ul>
+                            <li><a href="index.html" data-lang-key="nav-home">Главная</a></li>
+                            <li><a href="pricing.html" data-lang-key="nav-pricing">Тарифы</a></li>
+                            <li><a href="aml-kyc-policy.html" class="active" data-lang-key="aml-kyc-policy">Политика AML/KYC</a></li>
+                        </ul>
+                    </nav>
+                    <div class="header-controls">
+                        <button class="lang-toggle" aria-label="Switch language" data-lang="ru">RU</button>
+                        <button class="theme-toggle" aria-label="Toggle theme">
+                            <span class="theme-icon">☀️</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section class="policy-section">
+            <div class="blob blob-1"></div>
+            <div class="blob blob-2"></div>
+            <div class="container">
+                <h1 class="policy-title" data-lang-key="policy-title">Политика <span>AML/KYC</span></h1>
+                <p class="policy-subtitle" data-lang-key="policy-subtitle">Наша политика по противодействию отмыванию денег (AML) и процедуры идентификации клиентов (KYC) разработаны для обеспечения безопасности и соответствия международным стандартам.</p>
+                
+                <div class="policy-content">
+                    <h2 class="policy-section-title" data-lang-key="introduction-title">Введение</h2>
+                    <p class="policy-text" data-lang-key="introduction-text-1">
+                        Chupapi Munyanya VPN стремится обеспечить высокий уровень безопасности и конфиденциальности для своих пользователей, одновременно соблюдая все применимые законы и нормативные требования. Настоящая политика AML/KYC устанавливает принципы и процедуры, которые мы применяем для предотвращения использования наших услуг в целях отмывания денег и финансирования терроризма.
+                    </p>
+                    <p class="policy-text" data-lang-key="introduction-text-2">
+                        Мы понимаем, что пользователи VPN-сервисов особенно ценят свою приватность, поэтому наша политика AML/KYC разработана таким образом, чтобы соблюдать баланс между требованиями законодательства и правом пользователей на конфиденциальность.
+                    </p>
+
+                    <h2 class="policy-section-title" data-lang-key="definitions-title">Определения</h2>
+                    <p class="policy-text" data-lang-key="definitions-text">
+                        Для целей настоящей политики используются следующие определения:
+                    </p>
+                    <ul class="policy-list">
+                        <li data-lang-key="definition-aml"><strong>AML (Anti-Money Laundering)</strong> — комплекс мер, направленных на предотвращение отмывания денег, полученных преступным путем.</li>
+                        <li data-lang-key="definition-kyc"><strong>KYC (Know Your Customer)</strong> — процедура идентификации и проверки клиентов, направленная на оценку рисков и предотвращение мошенничества.</li>
+                        <li data-lang-key="definition-money-laundering"><strong>Отмывание денег</strong> — процесс легализации доходов, полученных преступным путем, с целью скрыть их незаконное происхождение.</li>
+                        <li data-lang-key="definition-terrorist-financing"><strong>Финансирование терроризма</strong> — предоставление или сбор средств с намерением их использования для поддержки террористических актов или организаций.</li>
+                    </ul>
+
+                    <h2 class="policy-section-title" data-lang-key="kyc-procedures-title">Процедуры KYC</h2>
+                    <p class="policy-text" data-lang-key="kyc-procedures-text-1">
+                        Chupapi Munyanya VPN применяет риск-ориентированный подход к процедурам KYC. Это означает, что объем запрашиваемой информации и уровень проверки зависят от оценки риска, связанного с конкретным клиентом или транзакцией.
+                    </p>
+                    <p class="policy-text" data-lang-key="kyc-procedures-text-2">
+                        В большинстве случаев для использования наших услуг достаточно базовой информации, такой как адрес электронной почты. Однако в определенных ситуациях мы можем запросить дополнительную информацию для верификации личности.
+                    </p>
+
+                    <div class="policy-highlight">
+                        <h3 class="policy-highlight-title" data-lang-key="kyc-levels-title">Уровни проверки KYC</h3>
+                        <p class="policy-highlight-text" data-lang-key="kyc-levels-text">
+                            В зависимости от суммы платежа, метода оплаты и других факторов риска, мы можем применять следующие уровни проверки:
+                        </p>
+                        <ul class="policy-list">
+                            <li data-lang-key="kyc-level-1"><strong>Базовый уровень:</strong> Адрес электронной почты и основная информация о платеже.</li
+                            <li data-lang-key="kyc-level-2"><strong>Стандартный уровень:</strong> Может потребоваться подтверждение адреса электронной почты и дополнительная информация о платеже.</li>
+                            <li data-lang-key="kyc-level-3"><strong>Расширенный уровень:</strong> В редких случаях может потребоваться предоставление документов, удостоверяющих личность, и подтверждение адреса.</li>
+                        </ul>
+                    </div>
+
+                    <h2 class="policy-section-title" data-lang-key="aml-measures-title">Меры AML</h2>
+                    <p class="policy-text" data-lang-key="aml-measures-text">
+                        Для предотвращения использования наших услуг в целях отмывания денег мы применяем следующие меры:
+                    </p>
+                    <ul class="policy-list">
+                        <li data-lang-key="aml-measure-1">Мониторинг транзакций на предмет подозрительной активности.</li
+                        <li data-lang-key="aml-measure-2">Проверка платежей на соответствие установленным лимитам и паттернам.</li
+                        <li data-lang-key="aml-measure-3">Сотрудничество с платежными системами и банками для обеспечения безопасности финансовых операций.</li>
+                        <li data-lang-key="aml-measure-4">Регулярное обновление списков санкций и проверка клиентов на предмет включения в такие списки.</li>
+                        <li data-lang-key="aml-measure-5">Обучение персонала по вопросам AML/KYC и выявления подозрительной активности.</li>
+                    </ul>
+
+                    <h2 class="policy-section-title" data-lang-key="data-protection-title">Защита данных</h2>
+                    <p class="policy-text" data-lang-key="data-protection-text-1">
+                        Мы понимаем важность защиты персональных данных наших пользователей. Вся информация, собранная в рамках процедур KYC, хранится в зашифрованном виде и используется исключительно для целей соблюдения требований законодательства.
+
+
+Мы не передаем собранную информацию третьим лицам, за исключением случаев, когда это требуется по закону или для предотвращения мошенничества.
+                    </p>
+                    <p class="policy-text" data-lang-key="data-protection-text-2">
+                        Срок хранения данных, собранных в рамках процедур KYC, ограничен периодом, необходимым для выполнения требований законодательства, после чего данные удаляются или анонимизируются.
+                    </p>
+
+                    <h2 class="policy-section-title" data-lang-key="user-rights-title">Права пользователей</h2>
+                    <p class="policy-text" data-lang-key="user-rights-text">
+                        Пользователи имеют следующие права в отношении своих персональных данных, собранных в рамках процедур KYC:
+                    </p>
+                    <ul class="policy-list">
+                        <li data-lang-key="user-right-1">Право на доступ к своим персональным данным.</li>
+                        <li data-lang-key="user-right-2">Право на исправление неточных или неполных данных.</li>
+                        <li data-lang-key="user-right-3">Право на удаление данных (с учетом требований законодательства о сроках хранения).</li>
+                        <li data-lang-key="user-right-4">Право на ограничение обработки данных.</li>
+                        <li data-lang-key="user-right-5">Право на возражение против обработки данных.</li>
+                        <li data-lang-key="user-right-6">Право на подачу жалобы в надзорный орган.</li>
+                    </ul>
+
+                    <h2 class="policy-section-title" data-lang-key="compliance-title">Соответствие законодательству</h2>
+                    <p class="policy-text" data-lang-key="compliance-text-1">
+                        Наша политика AML/KYC разработана в соответствии с международными стандартами и рекомендациями FATF (Группы разработки финансовых мер борьбы с отмыванием денег), а также с учетом требований законодательства стран, в которых мы осуществляем свою деятельность.
+                    </p>
+                    <p class="policy-text" data-lang-key="compliance-text-2">
+                        Мы регулярно обновляем нашу политику и процедуры для обеспечения их соответствия изменениям в законодательстве и лучшим практикам в области AML/KYC.
+                    </p>
+
+                    <h2 class="policy-section-title" data-lang-key="policy-updates-title">Обновления политики</h2>
+                    <p class="policy-text" data-lang-key="policy-updates-text">
+                        Настоящая политика может периодически обновляться для отражения изменений в законодательстве, нормативных требованиях или наших внутренних процедурах. Мы рекомендуем пользователям регулярно проверять эту страницу для ознакомления с актуальной версией политики.
+                    </p>
+                    <p class="policy-text" data-lang-key="policy-updates-date">
+                        Последнее обновление: 20 апреля 2025 г.
+                    </p>
+
+                    <div class="policy-contact">
+                        <h3 class="policy-contact-title" data-lang-key="contact-title">Остались вопросы?</h3>
+                        <p class="policy-contact-text" data-lang-key="contact-text">
+                            Если у вас есть вопросы относительно нашей политики AML/KYC или процедур верификации, пожалуйста, свяжитесь с нашей службой поддержки.
+                        </p>
+                        <a href="contacts.html" class="policy-contact-button" data-lang-key="contact-button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                            </svg>
+                            <span>Связаться с поддержкой</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4 data-lang-key="legal-info">Юридическая информация</h4>
+                    <ul>
+                        <li>
+                            <a href="aml-kyc-policy.html" data-lang-key="aml-kyc-policy">Политика AML/KYC</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 data-lang-key="support">Поддержка</h4>
+                    <ul>
+                        <li>
+                            <span data-lang-key="faq" style="color: var(--text-tertiary); font-size: 14px;">Часто задаваемые вопросы (скоро)</span>
+                        </li>
+                        <li>
+                            <span data-lang-key="installation-guide" style="color: var(--text-tertiary); font-size: 14px;">Руководство по установке (скоро)</span>
+                        </li>
+                        <li>
+                            <a href="contacts.html" data-lang-key="contacts">Контакты</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 data-lang-key="contact-us">Связаться с нами</h4>
+                    <ul>
+                        <li>
+                            <a href="mailto:support@chpnvpn.com" data-lang-key="email">Email: support@chpnvpn.com</a>
+                        </li>
+                        <li>
+                            <a href="https://t.me/chpnvpn" target="_blank" data-lang-key="telegram">Telegram: t.me/chpnvpn</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 data-lang-key="payment-methods">Способы оплаты</h4>
+                    <div class="payment-methods">
+                        <div class="payment-method">Visa</div>
+                        <div class="payment-method">MasterCard</div>
+                        <div class="payment-method">PayPal</div>
+                        <div class="payment-method">Bitcoin</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p data-lang-key="copyright">© 2025 Chupapi Munyanya VPN. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Language translations
+        const translations = {
+            'ru': {
+                'home': 'Главная',
+                'aml-kyc-policy': 'Политика AML/KYC',
+                'policy-title': 'Политика <span>AML/KYC</span>',
+                'policy-subtitle': 'Наша политика по противодействию отмыванию денег (AML) и процедуры идентификации клиентов (KYC) разработаны для обеспечения безопасности и соответствия международным стандартам.',
+                'introduction-title': 'Введение',
+                'introduction-text-1': 'Chupapi Munyanya VPN стремится обеспечить высокий уровень безопасности и конфиденциальности для своих пользователей, одновременно соблюдая все применимые законы и нормативные требования. Настоящая политика AML/KYC устанавливает принципы и процедуры, которые мы применяем для предотвращения использования наших услуг в целях отмывания денег и финансирования терроризма.',
+                'introduction-text-2': 'Мы понимаем, что пользователи VPN-сервисов особенно ценят свою приватность, поэтому наша политика AML/KYC разработана таким образом, чтобы соблюдать баланс между требованиями законодательства и правом пользователей на конфиденциальность.',
+                'definitions-title': 'Определения',
+                'definitions-text': 'Для целей настоящей политики используются следующие определения:',
+                'definition-aml': '<strong>AML (Anti-Money Laundering)</strong> — комплекс мер, направленных на предотвращение отмывания денег, полученных преступным путем.',
+                'definition-kyc': '<strong>KYC (Know Your Customer)</strong> — процедура идентификации и проверки клиентов, направленная на оценку рисков и предотвращение мошенничества.',
+                'definition-money-laundering': '<strong>Отмывание денег</strong> — процесс легализации доходов, полученных преступным путем, с целью скрыть их незаконное происхождение.',
+                'definition-terrorist-financing': '<strong>Финансирование терроризма</strong> — предоставление или сбор средств с намерением их использования для поддержки террористических актов или организаций.',
+                'kyc-procedures-title': 'Процедуры KYC',
+                'kyc-procedures-text-1': 'Chupapi Munyanya VPN применяет риск-ориентированный подход к процедурам KYC. Это означает, что объем запрашиваемой информации и уровень проверки зависят от оценки риска, связанного с конкретным клиентом или транзакцией.',
+                'kyc-procedures-text-2': 'В большинстве случаев для использования наших услуг достаточно базовой информации, такой как адрес электронной почты. Однако в определенных ситуациях мы можем запросить дополнительную информацию для верификации личности.',
+                'kyc-levels-title': 'Уровни проверки KYC',
+                'kyc-levels-text': 'В зависимости от суммы платежа, метода оплаты и других факторов риска, мы можем применять следующие уровни проверки:',
+                'kyc-level-1': '<strong>Базовый уровень:</strong> Адрес электронной почты и основная информация о платеже.',
+                'kyc-level-2': '<strong>Стандартный уровень:</strong> Может потребоваться подтверждение адреса электронной почты и дополнительная информация о платеже.',
+                'kyc-level-3': '<strong>Расширенный уровень:</strong> В редких случаях может потребоваться предоставление документов, удостоверяющих личность, и подтверждение адреса.',
+                'aml-measures-title': 'Меры AML',
+                'aml-measures-text': 'Для предотвращения использования наших услуг в целях отмывания денег мы применяем следующие меры:',
+                'aml-measure-1': 'Мониторинг транзакций на предмет подозрительной активности.',
+                'aml-measure-2': 'Проверка платежей на соответствие установленным лимитам и паттернам.',
+                'aml-measure-3': 'Сотрудничество с платежными системами и банками для обеспечения безопасности финансовых операций.',
+                'aml-measure-4': 'Регулярное обновление списков санкций и проверка клиентов на предмет включения в такие списки.',
+                'aml-measure-5': 'Обучение персонала по вопросам AML/KYC и выявления подозрительной активности.',
+                'data-protection-title': 'Защита данных',
+                'data-protection-text-1': 'Мы понимаем важность защиты персональных данных наших пользователей. Вся информация, собранная в рамках процедур KYC, хранится в зашифрованном виде и используется исключительно для целей соблюдения требований законодательства. Мы не передаем собранную информацию третьим лицам, за исключением случаев, когда это требуется по закону или для предотвращения мошенничества.',
+                'data-protection-text-2': 'Срок хранения данных, собранных в рамках процедур KYC, ограничен периодом, необходимым для выполнения требований законодательства, после чего данные удаляются или анонимизируются.',
+                'user-rights-title': 'Права пользователей',
+                'user-rights-text': 'Пользователи имеют следующие права в отношении своих персональных данных, собранных в рамках процедур KYC:',
+                'user-right-1': 'Право на доступ к своим персональным данным.',
+                'user-right-2': 'Право на исправление неточных или неполных данных.',
+                'user-right-3': 'Право на удаление данных (с учетом требований законодательства о сроках хранения).',
+                'user-right-4': 'Право на ограничение обработки данных.',
+                'user-right-5': 'Право на возражение против обработки данных.',
+                'user-right-6': 'Право на подачу жалобы в надзорный орган.',
+                'compliance-title': 'Соответствие законодательству',
+                'compliance-text-1': 'Наша политика AML/KYC разработана в соответствии с международными стандартами и рекомендациями FATF (Группы разработки финансовых мер борьбы с отмыванием денег), а также с учетом требований законодательства стран, в которых мы осуществляем свою деятельность.',
+                'compliance-text-2': 'Мы регулярно обновляем нашу политику и процедуры для обеспечения их соответствия изменениям в законодательстве и лучшим практикам в области AML/KYC.',
+                'policy-updates-title': 'Обновления политики',
+                'policy-updates-text': 'Настоящая политика может периодически обновляться для отражения изменений в законодательстве, нормативных требованиях или наших внутренних процедурах. Мы рекомендуем пользователям регулярно проверять эту страницу для ознакомления с актуальной версией политики.',
+                'policy-updates-date': 'Последнее обновление: 20 апреля 2025 г.',
+                'contact-title': 'Остались вопросы?',
+                'contact-text': 'Если у вас есть вопросы относительно нашей политики AML/KYC или процедур верификации, пожалуйста, свяжитесь с нашей службой поддержки.',
+                'contact-button': 'Связаться с поддержкой',
+                'legal-info': 'Юридическая информация',
+                'privacy-policy': 'Политика конфиденциальности',
+                'terms-of-use': 'Условия использования',
+                'cookie-policy': 'Политика использования файлов cookie',
+                'support': 'Поддержка',
+                'help-center': 'Центр помощи',
+                'faq': 'Часто задаваемые вопросы (скоро)',
+                'installation-guide': 'Руководство по установке (скоро)',
+                'contact-us': 'Связаться с нами',
+                'email': 'Email: support@chpnvpn.com',
+                'telegram': 'Telegram: t.me/chpnvpn',
+                'payment-methods': 'Способы оплаты',
+                'copyright': '© 2025 Chupapi Munyanya VPN. Все права защищены.',
+                'contacts': 'Контакты',
+                'nav-home': 'Главная',
+                'nav-pricing': 'Тарифы'
+            }
+        };
+
+        // Function to switch language
+        function switchLanguage(lang) {
+            localStorage.setItem('language', lang);
+            document.documentElement.setAttribute('lang', lang);
+
+            const elements = document.querySelectorAll('[data-lang-key]');
+            elements.forEach(element => {
+                const key = element.dataset.langKey;
+                if (translations[lang] && translations[lang][key]) {
+                    if (element.tagName === 'IMG') {
+                        element.src = translations[lang][key];
+                    } else {
+                        element.innerHTML = translations[lang][key];
+                    }
+                }
+            });
+
+            // Update language toggle button
+            const langToggle = document.querySelector('.lang-toggle');
+            langToggle.dataset.lang = lang;
+            langToggle.textContent = lang.toUpperCase();
+        }
+
+        // Event listener for language toggle
+        const langToggle = document.querySelector('.lang-toggle');
+        langToggle.addEventListener('click', function() {
+            const currentLang = this.dataset.lang;
+            const newLang = currentLang === 'ru' ? 'en' : 'ru';
+            switchLanguage(newLang);
+        });
+
+        // Theme toggle
+        const themeToggle = document.querySelector('.theme-toggle');
+        const themeIcon = document.querySelector('.theme-icon');
+
+        // Function to toggle theme
+        function toggleTheme() {
+            if (document.body.classList.contains('dark-theme')) {
+                document.body.classList.remove('dark-theme');
+                localStorage.setItem('theme', 'light');
+                themeIcon.textContent = '☀️';
+            } else {
+                document.body.classList.add('dark-theme');
+                localStorage.setItem('theme', 'dark');
+                themeIcon.textContent = '🌙';
+            }
+        }
+
+        // Event listener for theme toggle
+        themeToggle.addEventListener('click', toggleTheme);
+
+        // Check saved theme preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.body.classList.add('dark-theme');
+            themeIcon.textContent = '🌙';
+        }
+
+        // Check saved language preference
+        const savedLanguage = localStorage.getItem('language');
+        if (savedLanguage) {
+            switchLanguage(savedLanguage);
+        } else {
+            // Set default language based on browser language
+            const browserLang = navigator.language.split('-')[0];
+            if (browserLang === 'ru') {
+                switchLanguage('ru');
+            } else {
+                switchLanguage('en');
+            }
+        }
+
+        // Highlight active menu item based on current page
+        function highlightActiveMenuItem() {
+            const currentPath = window.location.pathname;
+            const filename = currentPath.substring(currentPath.lastIndexOf('/') + 1);
+            
+            document.querySelectorAll('.main-nav ul li a').forEach(link => {
+                const linkHref = link.getAttribute('href');
+                if (linkHref === filename || 
+                    (filename === '' && linkHref === 'index.html') || 
+                    (filename === '/' && linkHref === 'index.html')) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        }
+
+        // Call the function on page load
+        highlightActiveMenuItem();
+    </script>
+</body>
+</html>

@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="icon" href="https://chpnvpn.com/logotg.png" type="image/png">
+    <link rel="apple-touch-icon" href="https://chpnvpn.com/logotg.png">
+    <link rel="shortcut icon" href="https://chpnvpn.com/logotg.png" type="image/png">
+    <title>Часто задаваемые вопросы - Chupapi Munyanya VPN</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Apple-inspired color palette */
+            --primary: #0071e3;
+            --primary-light: #2b8eff;
+            --primary-dark: #0058b9;
+            --primary-gradient: linear-gradient(135deg, #0071e3 0%, #42a1ff 100%);
+            --secondary: #f56300;
+            --secondary-light: #ff8534;
+            --secondary-gradient: linear-gradient(135deg, #f56300 0%, #ff8534 100%);
+            --accent: #5e5ce6;
+            --accent-light: #7d7aff;
+            --accent-gradient: linear-gradient(135deg, #5e5ce6 0%, #7d7aff 100%);
+            --success: #34c759;
+            --success-light: #4cd66a;
+            --success-gradient: linear-gradient(135deg, #34c759 0%, #4cd66a 100%);
+            --warning: #ff9500;
+            --error: #ff3b30;
+            --text: #1d1d1f;
+            --text-secondary: #515154;
+            --text-tertiary: #86868b;
+            --background: #ffffff;
+            --card: rgba(255, 255, 255, 0.8);
+            --card-hover: rgba(255, 255, 255, 0.9);
+            --border: rgba(0, 0, 0, 0.1);
+            --border-light: rgba(0, 0, 0, 0.05);
+            --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.05);
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 8px 16px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.12);
+            --shadow-glow: 0 0 20px rgba(0, 113, 227, 0.2);
+        }
+
+        /* Dark theme */
+        .dark-theme {
+            --primary: #0a84ff;
+            --primary-light: #409cff;
+            --primary-dark: #0071e3;
+            --secondary: #ff9f0a;
+            --secondary-light: #ffb340;
+            --accent: #5e5ce6;
+            --accent-light: #7d7aff;
+            --success: #30d158;
+            --success-light: #4cd66a;
+            --text: #f5f5f7;
+            --text-secondary: #a1a1a6;
+            --text-tertiary: #6e6e73;
+            --background: #000000;
+            --card: rgba(28, 28, 30, 0.8);
+            --card-hover: rgba(44, 44, 46, 0.8);
+            --border: rgba(255, 255, 255, 0.1);
+            --border-light: rgba(255, 255, 255, 0.05);
+            --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.2);
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 8px 16px rgba(0, 0, 0, 0.4);
+            --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.5);
+            --shadow-glow: 0 0 20px rgba(10, 132, 255, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        html, body {
+            height: 100%;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        body {
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.5;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            font-size: 17px;
+            overflow-x: hidden;
+            letter-spacing: -0.01em;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Page structure */
+        .page-content {
+            flex: 1 0 auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 36px;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .logo:hover img {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .logo h1 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text);
+            letter-spacing: -0.02em;
+        }
+
+        .header-controls {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .theme-toggle, .lang-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: var(--card);
+            border: 1px solid var(--border);
+            cursor: pointer;
+            color: var(--text);
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .theme-toggle:hover, .lang-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .theme-toggle:active, .lang-toggle:active {
+            transform: translateY(0);
+        }
+
+        .theme-icon, .lang-icon {
+            font-size: 16px;
+            transition: transform 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .lang-toggle {
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .lang-toggle::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--primary-gradient);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+
+        .lang-toggle:hover::before {
+            opacity: 0.1;
+        }
+
+        .lang-toggle.active {
+            background: var(--primary-gradient);
+            color: white;
+            border-color: transparent;
+        }
+
+        .lang-toggle.active::before {
+            opacity: 0;
+        }
+
+        /* Main navigation */
+        .main-nav {
+            margin: 0 auto;
+        }
+
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 24px;
+        }
+
+        .main-nav ul li a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            padding: 5px 0;
+            transition: color 0.3s ease;
+        }
+
+        .main-nav ul li a:hover {
+            color: var(--primary);
+        }
+
+        .main-nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .main-nav ul li a:hover::after,
+        .main-nav ul li a.active::after {
+            width: 100%;
+        }
+
+        /* Responsive navigation */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-wrap: wrap;
+            }
+
+            .main-nav {
+                order: 3;
+                margin: 10px 0 0;
+                width: 100%;
+            }
+
+            .main-nav ul {
+                justify-content: center;
+            }
+        }
+
+        /* Breadcrumbs */
+        .breadcrumbs {
+            padding: 16px 0;
+            background-color: var(--background);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .breadcrumbs-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .breadcrumbs a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumbs a:hover {
+            color: var(--primary);
+        }
+
+        .breadcrumbs span {
+            color: var(--text-tertiary);
+            font-size: 14px;
+        }
+
+        .breadcrumbs .current {
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        /* FAQ section */
+        .faq-section {
+            padding: 60px 0;
+            position: relative;
+        }
+
+        .faq-title {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text);
+            text-align: center;
+            letter-spacing: -0.02em;
+        }
+
+        .faq-title span {
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .faq-subtitle {
+            font-size: 18px;
+            color: var(--text-secondary);
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            line-height: 1.5;
+        }
+
+        .search-section {
+            background-color: var(--card);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .search-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--text);
+            text-align: center;
+        }
+
+        .search-form {
+            display: flex;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 12px 16px;
+            border-radius: 12px 0 0 12px;
+            border: 1px solid var(--border);
+            background-color: var(--background);
+            color: var(--text);
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .search-button {
+            background: var(--primary-gradient);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 0 12px 12px 0;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .search-button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .faq-categories {
+            margin-bottom: 40px;
+        }
+
+        .faq-category {
+            margin-bottom: 30px;
+        }
+
+        .category-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--text);
+            position: relative;
+            padding-left: 16px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .faq-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .faq-items {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .faq-item {
+            background-color: var(--card);
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border);
+            overflow: hidden;
+        }
+
+        .faq-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md), var(--shadow-glow);
+            border-color: var(--primary-light);
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 500;
+            color: var(--text);
+            transition: all 0.3s ease;
+        }
+
+        .faq-question h3 {
+            font-size: 18px;
+            font-weight: 500;
+            margin: 0;
+        }
+
+        .faq-toggle {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--primary-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .faq-toggle span {
+            position: relative;
+            top: -1px;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, padding 0.3s ease;
+            border-top: 0px solid var(--border);
+        }
+
+        .faq-answer-content {
+            padding: 0 20px 20px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 1000px;
+            border-top: 1px solid var(--border);
+        }
+
+        .contact-section {
+            background-color: var(--card);
+            border-radius: 20px;
+            padding: 30px;
+            margin-top: 40px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            text-align: center;
+        }
+
+        .contact-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--text);
+        }
+
+        .contact-description {
+            font-size: 16px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 24px;
+            line-height: 1.5;
+        }
+
+        .contact-button {
+            background: var(--primary-gradient);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: var(--shadow);
+        }
+
+        .contact-button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md), var(--shadow-glow);
+        }
+
+        /* Decorative elements */
+        .blob {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: 0;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .blob-1 {
+            background: var(--primary);
+            width: 400px;
+            height: 400px;
+            top: -200px;
+            left: -200px;
+            opacity: 0.1;
+        }
+
+        .blob-2 {
+            background: var(--secondary);
+            width: 500px;
+            height: 500px;
+            bottom: -250px;
+            right: -250px;
+            opacity: 0.1;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--card);
+            padding: 40px 0 20px;
+            border-top: 1px solid var(--border);
+            position: relative;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            flex-shrink: 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 16px;
+            font-size: 16px;
+            color: var(--text);
+            font-weight: 600;
+            position: relative;
+            display: inline-block;
+            letter-spacing: -0.01em;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-section ul li a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            display: inline-block;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--primary);
+            transform: translateX(4px);
+        }
+
+        .payment-methods {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .payment-method {
+            background-color: var(--background);
+            padding: 6px 12px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            font-size: 14px;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .payment-method:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 16px;
+            border-top: 1px solid var(--border);
+            color: var(--text-tertiary);
+            font-size: 14px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Language switch animation */
+        @keyframes langSwitchIn {
+            0% { transform: translateY(20px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes langSwitchOut {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(-20px); opacity: 0; }
+        }
+
+        .lang-switch-in {
+            animation: langSwitchIn 0.5s forwards;
+        }
+
+        .lang-switch-out {
+            animation: langSwitchOut 0.5s forwards;
+        }
+
+        /* Adaptive styles */
+        @media (max-width: 992px) {
+            .faq-title {
+                font-size: 36px;
+            }
+            
+            .faq-subtitle {
+                font-size: 16px;
+            }
+            
+            .category-title {
+                font-size: 22px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .faq-section {
+                padding: 40px 0;
+            }
+            
+            .faq-title {
+                font-size: 30px;
+            }
+            
+            .faq-subtitle {
+                font-size: 15px;
+                margin-bottom: 30px;
+            }
+            
+            .search-section, .contact-section {
+                padding: 24px;
+            }
+            
+            .category-title {
+                font-size: 20px;
+            }
+            
+            .faq-question h3 {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .faq-section {
+                padding: 30px 0;
+            }
+            
+            .faq-title {
+                font-size: 26px;
+            }
+            
+            .faq-subtitle {
+                font-size: 14px;
+                margin-bottom: 24px;
+            }
+            
+            .search-section, .contact-section {
+                padding: 20px;
+            }
+            
+            .search-form {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .search-input {
+                border-radius: 12px;
+            }
+            
+            .search-button {
+                border-radius: 12px;
+            }
+            
+            .category-title {
+                font-size: 18px;
+            }
+            
+            .faq-question h3 {
+                font-size: 15px;
+            }
+        }
+
+        /* Добавить дополнительные медиа-запросы для очень маленьких экранов */
+        @media (max-width: 360px) {
+            .faq-title {
+                font-size: 22px;
+            }
+            
+            .contact-button {
+                width: 100%;
+            }
+        }
+
+        .main-nav ul li a.active {
+            color: var(--primary);
+        }
+
+        .main-nav ul li a.active::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-content">
+        <header>
+            <div class="container">
+                <div class="header-container">
+                    <a href="index.html" class="logo">
+                        <img src="https://chpnvpn.com/logotg.png" alt="Chupapi Munyanya VPN Logo">
+                        <h1>Chupapi Munyanya VPN</h1>
+                    </a>
+                    <nav class="main-nav">
+                        <ul>
+                            <li><a href="index.html" data-lang-key="nav-home">Главная</a></li>
+                            <li><a href="pricing.html" data-lang-key="nav-pricing">Тарифы</a></li>
+                        </ul>
+                    </nav>
+                    <div class="header-controls">
+                        <button class="lang-toggle" aria-label="Switch language" data-lang="ru">RU</button>
+                        <button class="theme-toggle" aria-label="Toggle theme">
+                            <span class="theme-icon">☀️</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section class="faq-section">
+            <div class="blob blob-1"></div>
+            <div class="blob blob-2"></div>
+            <div class="container">
+                <h1 class="faq-title" data-lang-key="faq-title">Часто задаваемые <span>вопросы</span></h1>
+                <p class="faq-subtitle" data-lang-key="faq-subtitle">Ответы на самые распространенные вопросы о нашем VPN-сервисе. Если вы не нашли ответ на свой вопрос, свяжитесь с нашей службой поддержки.</p>
+                
+                <div class="search-section">
+                    <h3 class="search-title" data-lang-key="search-title">Не нашли ответ на свой вопрос?</h3>
+                    <form class="search-form">
+                        <input type="text" class="search-input" placeholder="Введите ваш вопрос..." data-lang-key="search-placeholder">
+                        <button type="submit" class="search-button" data-lang-key="search-button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                            </svg>
+                            Поиск
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="faq-categories">
+                    <div class="faq-category">
+                        <h3 class="category-title" data-lang-key="category-general">Общие вопросы</h3>
+                        <div class="faq-items">
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <h3 data-lang-key="question-1">Что такое VPN и зачем он нужен?</h3>
+                                    <div class="faq-toggle"><span>+</span></div>
+                                </div>
+                                <div class="faq-answer">
+                                    <div class="faq-answer-content" data-lang-key="answer-1">
+                                        <p>VPN (Virtual Private Network) — это технология, которая создает защищенное соединение между вашим устройством и интернетом. VPN шифрует ваш интернет-трафик и скрывает вашу личность в сети, защищая вашу конфиденциальность и безопасность.</p>
+                                        <p>VPN необходим для:</p>
+                                        <ul style="padding-left: 1.5rem; margin-top: 0.5rem;">
+                                            <li>Защиты ваших данных при использовании общественных Wi-Fi сетей</li>
+                                            <li>Сохранения конфиденциальности вашей онлайн-активности</li>
+                                            <li>Обхода географических ограничений и цензуры</li>
+                                            <li>Защиты от слежки и сбора данных</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <h3 data-lang-key="question-2">Чем Chupapi Munyanya VPN отличается от других VPN-сервисов?</h3>
+                                    <div class="faq-toggle"><span>+</span></div>
+                                </div>
+                                <div class="faq-answer">
+                                    <div class="faq-answer-content" data-lang-key="answer-2">
+                                        <p>Chupapi Munyanya VPN выделяется среди конкурентов следующими преимуществами:</p>
+                                        <ul style="padding-left: 1.5rem; margin-top: 0.5rem;">
+                                            <li>Использование передовых протоколов VLESS и Shadowsocks для максимальной скорости и безопасности</li>
+                                            <li>Строгая политика отсутствия логирования — мы не храним никакой информации о вашей активности</li>
+                                            <li>Высокоскоростные серверы в более чем 50 странах мира</li>
+                                            <li>Простой и интуитивно понятный интерфейс для всех устройств</li>
+                                            <li>Доступные тарифные планы с гибкими условиями оплаты</li>
+                                            <li>Круглосуточная техническая поддержка</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-category">
+                        <h3 class="category-title" data-lang-key="category-security">Безопасность и конфиденциальность</h3>
+                        <div class="faq-items">
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <h3 data-lang-key="question-3">Ведете ли вы логи активности пользователей?</h3>
+                                    <div class="faq-toggle"><span>+</span></div>
+                                </div>
+                                <div class="faq-answer">
+                                    <div class="faq-answer-content" data-lang-key="answer-3">
+                                        <p>Нет, мы придерживаемся строгой политики отсутствия логирования. Мы не отслеживаем, не записываем и не храним информацию о вашей онлайн-активности, посещаемых сайтах, загружаемых файлах или IP-адресах.</p>
+                                        <p>Мы собираем только минимальную информацию, необходимую для обеспечения работы сервиса, такую как данные для аутентификации и информация о платежах. Эта информация никогда не связывается с вашей активностью в интернете.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <h3 data-lang-key="question-4">Какие протоколы шифрования вы используете?</h3>
+                                    <div class="faq-toggle"><span>+</span></div>
+                                </div>
+                                <div class="faq-answer">
+                                    <div class="faq-answer-content" data-lang-key="answer-4">
+                                        <p>Мы используем самые современные протоколы шифрования для обеспечения максимальной безопасности:</p>
+                                        <ul style="padding-left: 1.5rem; margin-top: 0.5rem;">
+                                            <li>VLESS — современный протокол с высокой скоростью и низкой задержкой</li>
+                                            <li>Shadowsocks — эффективный протокол для обхода блокировок</li>
+                                            <li>AES-256 — военный стандарт шифрования</li>
+                                            <li>ChaCha20 — высокоскоростной алгоритм шифрования</li>
+                                        </ul>
+                                        <p>Все наши соединения защищены 256-битным шифрованием, что делает перехват или расшифровку ваших данных практически невозможными.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-category">
+                        <h3 class="category-title" data-lang-key="category-subscription">Подписка и оплата</h3>
+                        <div class="faq-items">
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <h3 data-lang-key="question-5">Какие тарифные планы вы предлагаете?</h3>
+                                    <div class="faq-toggle"><span>+</span></div>
+                                </div>
+                                <div class="faq-answer">
+                                    <div class="faq-answer-content" data-lang-key="answer-5">
+                                        <p>Мы предлагаем несколько гибких тарифных планов, чтобы удовлетворить различные потребности:</p>
+                                        <ul style="padding-left: 1.5rem; margin-top: 0.5rem;">
+                                            <li><strong>Месячный план</strong> — идеально подходит для краткосрочного использования</li>
+                                            <li><strong>Полугодовой план</strong> — экономия 25% по сравнению с месячной оплатой</li>
+                                            <li><strong>Годовой план</strong> — наиболее выгодный вариант с экономией до 40%</li>
+                                        </ul>
+                                        <p>Все планы включают полный доступ ко всем функциям и серверам, без ограничений скорости или трафика. Для получения актуальной информации о ценах, пожалуйста, посетите раздел "Тарифы" на нашем сайте.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <h3 data-lang-key="question-6">Какие способы оплаты вы принимаете?</h3>
+                                    <div class="faq-toggle"><span>+</span></div>
+                                </div>
+                                <div class="faq-answer">
+                                    <div class="faq-answer-content" data-lang-key="answer-6">
+                                        <p>Мы принимаем различные способы оплаты для вашего удобства:</p>
+                                        <ul style="padding-left: 1.5rem; margin-top: 0.5rem;">
+                                            <li>Кредитные и дебетовые карты (Visa, MasterCard)</li>
+                                            <li>PayPal</li>
+                                            <li>Криптовалюты (Bitcoin и другие)</li>
+                                        </ul>
+                                        <p>Оплата криптовалютой обеспечивает дополнительный уровень анонимности, если это важно для вас.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-section">
+                    <h3 class="contact-title" data-lang-key="contact-title">Не нашли ответ на свой вопрос?</h3>
+                    <p class="contact-description" data-lang-key="contact-description">Наша команда поддержки готова помочь вам с любыми вопросами или проблемами. Свяжитесь с нами, и мы ответим в кратчайшие сроки.</p>
+                    <button class="contact-button" data-lang-key="contact-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                        </svg>
+                        <span>Связаться с поддержкой</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4 data-lang-key="legal-info">Юридическая информация</h4>
+                    <ul>
+                        <li>
+                            <a href="aml-kyc-policy.html" data-lang-key="aml-kyc-policy">Политика AML/KYC</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 data-lang-key="support">Поддержка</h4>
+                    <ul>
+                        <li>
+                            <span data-lang-key="faq" style="color: var(--text-tertiary); font-size: 14px;">Часто задаваемые вопросы (скоро)</span>
+                        </li>
+                        <li>
+                            <span data-lang-key="installation-guide" style="color: var(--text-tertiary); font-size: 14px;">Руководство по установке (скоро)</span>
+                        </li>
+                        <li>
+                            <a href="contacts.html" data-lang-key="contacts">Контакты</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 data-lang-key="contact-us">Связаться с нами</h4>
+                    <ul>
+                        <li>
+                            <a href="mailto:support@chpnvpn.com" data-lang-key="email">Email: support@chpnvpn.com</a>
+                        </li>
+                        <li>
+                            <a href="https://t.me/chpnvpn" target="_blank" data-lang-key="telegram">Telegram: t.me/chpnvpn</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 data-lang-key="payment-methods">Способы оплаты</h4>
+                    <div class="payment-methods">
+                        <div class="payment-method">Visa</div>
+                        <div class="payment-method">MasterCard</div>
+                        <div class="payment-method">PayPal</div>
+                        <div class="payment-method">Bitcoin</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p data-lang-key="copyright">© 2025 Chupapi Munyanya VPN. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Language translations
+        const translations = {
+            'ru': {
+                'home': 'Главная',
+                'faq': 'Часто задаваемые вопросы',
+                'faq-title': 'Часто задаваемые <span>вопросы</span>',
+                'faq-subtitle': 'Ответы на самые распространенные вопросы о нашем VPN-сервисе. Если вы не нашли ответ на свой вопрос, свяжитесь с нашей службой поддержки.',
+                'search-title': 'Не нашли ответ на свой вопрос?',
+                'search-placeholder': 'Введите ваш вопрос...',
+                'search-button': 'Поиск',
+                'category-general': 'Общие вопросы',
+                'category-security': 'Безопасность и конфиденциальность',
+                'category-subscription': 'Подписка и оплата',
+                'question-1': 'Что такое VPN и зачем он нужен?',
+                'question-2': 'Чем Chupapi Munyanya VPN отличается от других VPN-сервисов?',
+                'question-3': 'Ведете ли вы логи активности пользователей?',
+                'question-4': 'Какие протоколы шифрования вы используете?',
+                'question-5': 'Какие тарифные планы вы предлагаете?',
+                'question-6': 'Какие способы оплаты вы принимаете?',
+                'contact-title': 'Не нашли ответ на свой вопрос?',
+                'contact-description': 'Наша команда поддержки готова помочь вам с любыми вопросами или проблемами. Свяжитесь с нами, и мы ответим в кратчайшие сроки.',
+                'contact-button': 'Связаться с поддержкой',
+                'legal-info': 'Юридическая информация',
+                'privacy-policy': 'Политика конфиденциальности',
+                'terms-of-use': 'Условия использования',
+                'cookie-policy': 'Политика использования файлов cookie',
+                'support': 'Поддержка',
+                'help-center': 'Центр помощи',
+                'installation-guide': 'Руководство по установке',
+                'contact-us': 'Связаться с нами',
+                'email': 'Email: support@chpnvpn.com',
+                'telegram': 'Telegram: t.me/chpnvpn',
+                'payment-methods': 'Способы оплаты',
+                'copyright': '© 2025 Chupapi Munyanya VPN. Все права защищены.',
+                'aml-kyc-policy': 'Политика AML/KYC',
+                'contacts': 'Контакты',
+                'faq': 'Часто задаваемые вопросы (скоро)',
+                'installation-guide': 'Руководство по установке (скоро)',
+                'nav-home': 'Главная',
+                'nav-pricing': 'Тарифы'
+            },
+            'en': {
+                'home': 'Home',
+                'faq': 'Frequently Asked Questions',
+                'faq-title': 'Frequently Asked <span>Questions</span>',
+                'faq-subtitle': 'Answers to the most common questions about our VPN service. If you can\'t find the answer to your question, please contact our support team.',
+                'search-title': 'Couldn\'t find your answer?',
+                'search-placeholder': 'Enter your question...',
+                'search-button': 'Search',
+                'category-general': 'General Questions',
+                'category-security': 'Security and Privacy',
+                'category-subscription': 'Subscription and Payment',
+                'question-1': 'What is a VPN and why do I need it?',
+                'question-2': 'How does Chupapi Munyanya VPN differ from other VPN services?',
+                'question-3': 'Do you keep logs of user activity?',
+                'question-4': 'What encryption protocols do you use?',
+                'question-5': 'What pricing plans do you offer?',
+                'question-6': 'What payment methods do you accept?',
+                'contact-title': 'Couldn\'t find your answer?',
+                'contact-description': 'Our support team is ready to help you with any questions or issues. Contact us and we will respond as soon as possible.',
+                'contact-button': 'Contact Support',
+                'legal-info': 'Legal Information',
+                'privacy-policy': 'Privacy Policy',
+                'terms-of-use': 'Terms of Use',
+                'cookie-policy': 'Cookie Policy',
+                'support': 'Support',
+                'help-center': 'Help Center',
+                'installation-guide': 'Installation Guide',
+                'contact-us': 'Contact Us',
+                'email': 'Email: support@chpnvpn.com',
+                'telegram': 'Telegram: t.me/chpnvpn',
+                'payment-methods': 'Payment Methods',
+                'copyright': '© 2025 Chupapi Munyanya VPN. All rights reserved.',
+                'aml-kyc-policy': 'AML/KYC Policy',
+                'contacts': 'Contacts',
+                'faq': 'FAQ (coming soon)',
+                'installation-guide': 'Installation Guide (coming soon)',
+                'nav-home': 'Home',
+                'nav-pricing': 'Pricing'
+            }
+        };
+
+        // Function to switch language
+        function switchLanguage(lang) {
+            const elements = document.querySelectorAll('[data-lang-key]');
+            
+            elements.forEach(element => {
+                const key = element.getAttribute('data-lang-key');
+                if (translations[lang] && translations[lang][key]) {
+                    // Add animation classes
+                    element.classList.add('lang-switch-out');
+                    
+                    setTimeout(() => {
+                        // If the content contains HTML, use innerHTML, otherwise use textContent
+                        if (translations[lang][key].includes('<')) {
+                            element.innerHTML = translations[lang][key];
+                        } else if (element.tagName === 'INPUT') {
+                            element.placeholder = translations[lang][key];
+                        } else {
+                            element.textContent = translations[lang][key];
+                        }
+                        
+                        element.classList.remove('lang-switch-out');
+                        element.classList.add('lang-switch-in');
+                        
+                        setTimeout(() => {
+                            element.classList.remove('lang-switch-in');
+                        }, 500);
+                    }, 300);
+                }
+            });
+            
+            // Update language toggle button
+            const langToggle = document.querySelector('.lang-toggle');
+            if (langToggle) {
+                langToggle.textContent = lang.toUpperCase();
+                langToggle.setAttribute('data-lang', lang);
+            }
+            
+            // Store the selected language in localStorage
+            localStorage.setItem('language', lang);
+            
+            // Update html lang attribute
+            document.documentElement.lang = lang;
+        }
+
+        // Language toggle functionality
+        const langToggle = document.querySelector('.lang-toggle');
+        if (langToggle) {
+            langToggle.addEventListener('click', () => {
+                const currentLang = langToggle.getAttribute('data-lang');
+                const newLang = currentLang === 'ru' ? 'en' : 'ru';
+                switchLanguage(newLang);
+            });
+        }
+
+        // Theme toggle functionality
+        const themeToggle = document.querySelector('.theme-toggle');
+        const themeIcon = document.querySelector('.theme-icon');
+
+        // Check saved theme preferences or use preferred color scheme
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        // Set initial theme
+        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+            document.documentElement.classList.add('dark-theme');
+            document.body.classList.add('dark-theme');
+            if (themeIcon) themeIcon.textContent = '🌙';
+        }
+
+        // Toggle theme
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                document.documentElement.classList.toggle('dark-theme');
+                document.body.classList.toggle('dark-theme');
+                
+                if (document.body.classList.contains('dark-theme')) {
+                    if (themeIcon) themeIcon.textContent = '🌙';
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    if (themeIcon) themeIcon.textContent = '☀️';
+                    localStorage.setItem('theme', 'light');
+                }
+                
+                // Add rotation animation
+                if (themeIcon) {
+                    themeIcon.style.transform = 'rotate(360deg)';
+                    setTimeout(() => {
+                        themeIcon.style.transform = 'rotate(0)';
+                    }, 300);
+                }
+            });
+        }
+
+        // FAQ items
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            const answer = item.querySelector('.faq-answer');
+            
+            question.addEventListener('click', () => {
+                // Закрыть все другие открытые элементы
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item && otherItem.classList.contains('active')) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                
+                // Переключить текущий элемент
+                item.classList.toggle('active');
+            });
+        });
+
+        // Check saved language preference
+        const savedLanguage = localStorage.getItem('language');
+        if (savedLanguage) {
+            switchLanguage(savedLanguage);
+        } else {
+            // Set default language based on browser language
+            const browserLang = navigator.language.split('-')[0];
+            if (browserLang === 'ru') {
+                switchLanguage('ru');
+            } else {
+                switchLanguage('en');
+            }
+        }
+
+        // Search functionality
+        const searchForm = document.querySelector('.search-form');
+        if (searchForm) {
+            searchForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const searchInput = searchForm.querySelector('.search-input');
+                const searchTerm = searchInput.value.toLowerCase();
+                
+                if (searchTerm.trim() === '') return;
+                
+                let found = false;
+                
+                // Search through all FAQ items
+                faqItems.forEach(item => {
+                    const questionText = item.querySelector('.faq-question h3').textContent.toLowerCase();
+                    const answerContent = item.querySelector('.faq-answer-content');
+                    const answerText = answerContent ? answerContent.textContent.toLowerCase() : '';
+                    
+                    if (questionText.includes(searchTerm) || answerText.includes(searchTerm)) {
+                        item.classList.add('active');
+                        
+                        if (!found) {
+                            // Scroll to the first match
+                            item.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            found = true;
+                        }
+                    } else {
+                        item.classList.remove('active');
+                    }
+                });
+                
+                // Clear the search input
+                searchInput.value = '';
+            });
+        }
+    </script>
+</body>
+</html>

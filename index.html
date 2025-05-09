@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="icon" href="https://chpnvpn.com/logotg.png" type="image/png">
+    <link rel="apple-touch-icon" href="https://chpnvpn.com/logotg.png">
+    <link rel="shortcut icon" href="https://chpnvpn.com/logotg.png" type="image/png">
+    <title>Chupapi Munyanya VPN</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Apple-inspired color palette */
+            --primary: #0071e3;
+            --primary-light: #2b8eff;
+            --primary-dark: #0058b9;
+            --primary-gradient: linear-gradient(135deg, #0071e3 0%, #42a1ff 100%);
+            --secondary: #f56300;
+            --secondary-light: #ff8534;
+            --secondary-gradient: linear-gradient(135deg, #f56300 0%, #ff8534 100%);
+            --accent: #5e5ce6;
+            --accent-light: #7d7aff;
+            --accent-gradient: linear-gradient(135deg, #5e5ce6 0%, #7d7aff 100%);
+            --success: #34c759;
+            --warning: #ff9500;
+            --error: #ff3b30;
+            --text: #1d1d1f;
+            --text-secondary: #515154;
+            --text-tertiary: #86868b;
+            --background: #ffffff;
+            --card: rgba(255, 255, 255, 0.8);
+            --card-hover: rgba(255, 255, 255, 0.9);
+            --border: rgba(0, 0, 0, 0.1);
+            --border-light: rgba(0, 0, 0, 0.05);
+            --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.05);
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 8px 16px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.12);
+            --shadow-glow: 0 0 20px rgba(0, 113, 227, 0.2);
+        }
+
+        /* Dark theme */
+        .dark-theme {
+            --primary: #0a84ff;
+            --primary-light: #409cff;
+            --primary-dark: #0071e3;
+            --secondary: #ff9f0a;
+            --secondary-light: #ffb340;
+            --accent: #5e5ce6;
+            --accent-light: #7d7aff;
+            --text: #f5f5f7;
+            --text-secondary: #a1a1a6;
+            --text-tertiary: #6e6e73;
+            --background: #000000;
+            --card: rgba(28, 28, 30, 0.8);
+            --card-hover: rgba(44, 44, 46, 0.8);
+            --border: rgba(255, 255, 255, 0.1);
+            --border-light: rgba(255, 255, 255, 0.05);
+            --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.2);
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 8px 16px rgba(0, 0, 0, 0.4);
+            --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.5);
+            --shadow-glow: 0 0 20px rgba(10, 132, 255, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        html, body {
+            height: 100%;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        body {
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.5;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            font-size: 17px;
+            overflow-x: hidden;
+            letter-spacing: -0.01em;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Page structure */
+        .page-content {
+            flex: 1 0 auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 36px;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .logo:hover img {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .logo h1 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text);
+            letter-spacing: -0.02em;
+        }
+
+        /* Навигационное меню */
+        .main-nav {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .nav-link {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            padding: 5px 10px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+        }
+
+        .nav-link.active {
+            color: var(--primary);
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 10px;
+            right: 10px;
+            height: 2px;
+            background: var(--primary-gradient);
+            border-radius: 2px;
+        }
+
+        .header-controls {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .theme-toggle, .lang-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: var(--card);
+            border: 1px solid var(--border);
+            cursor: pointer;
+            color: var(--text);
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .theme-toggle:hover, .lang-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .theme-toggle:active, .lang-toggle:active {
+            transform: translateY(0);
+        }
+
+        .theme-icon, .lang-icon {
+            font-size: 16px;
+            transition: transform 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .lang-toggle {
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .lang-toggle::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--primary-gradient);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+
+        .lang-toggle:hover::before {
+            opacity: 0.1;
+        }
+
+        .lang-toggle.active {
+            background: var(--primary-gradient);
+            color: white;
+            border-color: transparent;
+        }
+
+        .lang-toggle.active::before {
+            opacity: 0;
+        }
+
+        /* Hero section */
+        .hero {
+            padding: 30px 0 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h2 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            line-height: 1.1;
+            color: var(--text);
+            letter-spacing: -0.03em;
+        }
+
+        .hero h2 span {
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 16px;
+            font-weight: 400;
+            line-height: 1.4;
+        }
+
+        .hero-badges {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 14px;
+            background-color: var(--card);
+            border-radius: 14px;
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .badge:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-light);
+        }
+
+        .badge-icon {
+            width: 20px;
+            height: 20px;
+            background: var(--primary-gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 10px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* Download section */
+        .download-section {
+            padding: 10px 0 30px;
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text);
+            letter-spacing: -0.02em;
+        }
+
+        .section-title span {
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-description {
+            font-size: 16px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+            font-weight: 400;
+            line-height: 1.4;
+        }
+
+        .platforms {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 12px;
+            position: relative;
+            z-index: 2;
+            width: 100%;
+        }
+
+        .platform-card {
+            background-color: var(--card);
+            border-radius: 16px;
+            padding: 16px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .platform-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg), var(--shadow-glow);
+            border-color: var(--primary-light);
+        }
+
+        .platform-icon {
+            width: 50px;
+            height: 50px;
+            margin: 0 auto 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--primary-gradient);
+            border-radius: 14px;
+            font-size: 24px;
+            color: white;
+            box-shadow: var(--shadow);
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+
+        .platform-card:hover .platform-icon {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-md);
+        }
+
+        .platform-card h4 {
+            margin: 8px 0;
+            font-size: 18px;
+            color: var(--text);
+            font-weight: 600;
+            letter-spacing: -0.01em;
+        }
+
+        .platform-card p {
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+            font-size: 14px;
+            line-height: 1.4;
+            flex-grow: 1;
+        }
+
+        .download-btn {
+            background: var(--primary-gradient);
+            color: white;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            font-size: 15px;
+            box-shadow: var(--shadow);
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md), var(--shadow-glow);
+        }
+
+        .download-btn svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        .coming-soon {
+            background: var(--card);
+            color: var(--text-tertiary);
+            border: 1px solid var(--border);
+            cursor: not-allowed;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .coming-soon:hover {
+            background: var(--card);
+            box-shadow: var(--shadow-sm);
+            transform: none;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--card);
+            padding: 40px 0 20px;
+            border-top: 1px solid var(--border);
+            position: relative;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            flex-shrink: 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 16px;
+            font-size: 16px;
+            color: var(--text);
+            font-weight: 600;
+            position: relative;
+            display: inline-block;
+            letter-spacing: -0.01em;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-section ul li a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            display: inline-block;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--primary);
+            transform: translateX(4px);
+        }
+
+        .payment-methods {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .payment-method {
+            background-color: var(--background);
+            padding: 6px 12px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            font-size: 14px;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .payment-method:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 16px;
+            border-top: 1px solid var(--border);
+            color: var(--text-tertiary);
+            font-size: 14px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Decorative elements */
+        .blob {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: 0;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .blob-1 {
+            background: var(--primary);
+            width: 400px;
+            height: 400px;
+            top: -200px;
+            left: -200px;
+            opacity: 0.1;
+        }
+
+        .blob-2 {
+            background: var(--secondary);
+            width: 500px;
+            height: 500px;
+            bottom: -250px;
+            right: -250px;
+            opacity: 0.1;
+        }
+
+        .blob-3 {
+            background: var(--accent);
+            width: 300px;
+            height: 300px;
+            top: 40%;
+            right: -150px;
+            opacity: 0.1;
+        }
+
+        .dark-theme .blob-1,
+        .dark-theme .blob-2,
+        .dark-theme .blob-3 {
+            opacity: 0.15;
+        }
+
+        /* Language switch animation */
+        @keyframes langSwitchIn {
+            0% { transform: translateY(20px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes langSwitchOut {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(-20px); opacity: 0; }
+        }
+
+        .lang-switch-in {
+            animation: langSwitchIn 0.5s forwards;
+        }
+
+        @keyframes langSwitchOut {
+            animation: langSwitchOut 0.5s forwards;
+        }
+
+        /* Adaptive styles */
+        @media (max-width: 992px) {
+            .hero h2 {
+                font-size: 42px;
+            }
+            
+            .section-title {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 20px 0 0;
+            }
+            
+            .hero h2 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 16px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .platforms {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+
+            .download-section {
+                margin-bottom: 30px;
+            }
+
+            .header-container {
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+            
+            .main-nav {
+                order: 3;
+                width: 100%;
+                margin-top: 10px;
+                justify-content: center;
+            }
+            
+            .nav-links {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .platforms {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h2 {
+                font-size: 28px;
+            }
+            
+            .hero p {
+                font-size: 14px;
+            }
+            
+            .section-title {
+                font-size: 22px;
+            }
+
+            .platform-card {
+                padding: 12px;
+            }
+
+            .hero-badges {
+                gap: 5px;
+            }
+
+            .badge {
+                padding: 5px 10px;
+                font-size: 12px;
+            }
+            
+            .container {
+                padding: 0 15px;
+            }
+            
+            .header-controls {
+                gap: 8px;
+            }
+            
+            .theme-toggle, .lang-toggle {
+                width: 32px;
+                height: 32px;
+            }
+            
+            .logo h1 {
+                font-size: 16px;
+            }
+            
+            .logo img {
+                height: 32px;
+            }
+
+            .download-section {
+                margin-bottom: 20px;
+            }
+
+            .nav-link {
+                font-size: 14px;
+                padding: 4px 8px;
+            }
+        }
+
+        /* Добавить дополнительные медиа-запросы для очень маленьких экранов */
+        @media (max-width: 360px) {
+            .hero h2 {
+                font-size: 24px;
+            }
+            
+            .section-title {
+                font-size: 20px;
+            }
+            
+            .hero-badges {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .badge {
+                width: 100%;
+                max-width: 200px;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-content">
+        <header>
+            <div class="container">
+                <div class="header-container">
+                    <a href="#" class="logo">
+                        <img src="https://chpnvpn.com/logotg.png" alt="Chupapi Munyanya VPN Logo">
+                        <h1>Chupapi Munyanya VPN</h1>
+                    </a>
+                    
+                    <!-- Добавляем навигационное меню -->
+                    <nav class="main-nav">
+                        <ul class="nav-links">
+                            <li><a href="index.html" class="nav-link active" data-lang-key="nav-home">Главная</a></li>
+                            <li><a href="pricing.html" class="nav-link" data-lang-key="nav-pricing">Тарифы</a></li>
+                        </ul>
+                    </nav>
+                    
+                    <div class="header-controls">
+                        <button class="lang-toggle" aria-label="Switch language" data-lang="ru">RU</button>
+                        <button class="theme-toggle" aria-label="Toggle theme">
+                            <span class="theme-icon">☀️</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section class="hero">
+            <div class="blob blob-1"></div>
+            <div class="blob blob-2"></div>
+            <div class="container">
+                <div class="hero-content">
+                    <h2 data-lang-key="hero-title">Безопасное <span>VPN-решение</span></h2>
+                    <p data-lang-key="hero-description">Продвинутая защита на основе технологий VLESS и Shadowsocks для вашей конфиденциальности</p>
+                    
+                    <div class="hero-badges">
+                        <div class="badge">
+                            <span class="badge-icon">✓</span>
+                            <span data-lang-key="badge-no-logs">Без логирования</span>
+                        </div>
+                        <div class="badge">
+                            <span class="badge-icon">✓</span>
+                            <span data-lang-key="badge-high-speed">Высокоскоростные серверы</span>
+                        </div>
+                        <div class="badge">
+                            <span class="badge-icon">✓</span>
+                            <span data-lang-key="badge-encryption">256-битное шифрование</span>
+                        </div>
+                        <div class="badge">
+                            <span class="badge-icon">✓</span>
+                            <span data-lang-key="badge-stability">Стабильность серверов</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="download-section">
+            <div class="blob blob-3"></div>
+            <div class="container">
+                <div class="section-header">
+                    <h3 class="section-title" data-lang-key="download-title">Скачайте наши <span>приложения</span></h3>
+                    <p class="section-description" data-lang-key="download-description">Защитите свое соединение на любом устройстве с помощью наших удобных приложений</p>
+                </div>
+                
+                <div class="platforms">
+                    <div class="platform-card">
+                        <div class="platform-icon">📱</div>
+                        <h4>iOS</h4>
+                        <p data-lang-key="ios-description">Безопасный просмотр на iPhone и iPad с нашим удобным приложением</p>
+                        <button class="download-btn coming-soon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                            <span data-lang-key="coming-soon">Скоро</span>
+                        </button>
+                    </div>
+                    
+                    <div class="platform-card">
+                        <div class="platform-icon">🤖</div>
+                        <h4>Android</h4>
+                        <p data-lang-key="android-description">Защита для ваших устройств Android с нашим многофункциональным приложением</p>
+                        <button class="download-btn coming-soon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                            <span data-lang-key="coming-soon">Скоро</span>
+                        </button>
+                    </div>
+                    
+                    <div class="platform-card">
+                        <div class="platform-icon">💻</div>
+                        <h4>Windows</h4>
+                        <p data-lang-key="windows-description">Скоро для Windows PC с расширенными функциями безопасности</p>
+                        <button class="download-btn coming-soon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                            <span data-lang-key="coming-soon">Скоро</span>
+                        </button>
+                    </div>
+                    
+                    <div class="platform-card">
+                        <div class="platform-icon">🍎</div>
+                        <h4>macOS</h4>
+                        <p data-lang-key="macos-description">Скоро для компьютеров Mac с безупречной интеграцией</p>
+                        <button class="download-btn coming-soon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                            <span data-lang-key="coming-soon">Скоро</span>
+                        </button>
+                    </div>
+                    
+                    <div class="platform-card">
+                        <div class="platform-icon">🐧</div>
+                        <h4>Linux</h4>
+                        <p data-lang-key="linux-description">Скоро для систем Linux с совместимостью с открытым исходным кодом</p>
+                        <button class="download-btn coming-soon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                            <span data-lang-key="coming-soon">Скоро</span>
+                        </button>
+                    </div>
+                    
+                    <div class="platform-card">
+                        <div class="platform-icon">📡</div>
+                        <h4>Router</h4>
+                        <p data-lang-key="router-description">Скоро для роутеров для защиты всей домашней сети</p>
+                        <button class="download-btn coming-soon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                            <span data-lang-key="coming-soon">Скоро</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4 data-lang-key="legal-info">Юридическая информация</h4>
+                    <ul>
+                        <li>
+                            <a href="aml-kyc-policy.html" data-lang-key="aml-kyc-policy">Политика AML/KYC</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 data-lang-key="support">Поддержка</h4>
+                    <ul>
+                        <li>
+                            <span data-lang-key="faq" style="color: var(--text-tertiary); font-size: 14px;">Часто задаваемые вопросы (скоро)</span>
+                        </li>
+                        <li>
+                            <span data-lang-key="installation-guide" style="color: var(--text-tertiary); font-size: 14px;">Руководство по установке (скоро)</span>
+                        </li>
+                        <li>
+                            <a href="contacts.html" data-lang-key="contacts">Контакты</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 data-lang-key="contact-us">Связаться с нами</h4>
+                    <ul>
+                        <li>
+                            <a href="mailto:support@chpnvpn.com" data-lang-key="email">Email: support@chpnvpn.com</a>
+                        </li>
+                        <li>
+                            <a href="https://t.me/chpnvpn" target="_blank" data-lang-key="telegram">Telegram: t.me/chpnvpn</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 data-lang-key="payment-methods">Способы оплаты</h4>
+                    <div class="payment-methods">
+                        <div class="payment-method">Visa</div>
+                        <div class="payment-method">MasterCard</div>
+                        <div class="payment-method">PayPal</div>
+                        <div class="payment-method">Bitcoin</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p data-lang-key="copyright">© 2025 Chupapi Munyanya VPN. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Language translations
+        const translations = {
+            'ru': {
+                'nav-home': 'Главная',
+                'nav-pricing': 'Тарифы',
+                'hero-title': 'Безопасное <span>VPN-решение</span>',
+                'hero-description': 'Продвинутая защита на основе технологий VLESS и Shadowsocks для вашей конфиденциальности',
+                'badge-no-logs': 'Без логирования',
+                'badge-high-speed': 'Высокоскоростные серверы',
+                'badge-encryption': '256-битное шифрование',
+                'badge-stability': 'Стабильность серверов',
+                'download-title': 'Скачайте наши <span>приложения</span>',
+                'download-description': 'Защитите свое соединение на любом устройстве с помощью наших удобных приложений',
+                'ios-description': 'Безопасный просмотр на iPhone и iPad с нашим удобным приложением',
+                'android-description': 'Защита для ваших устройств Android с нашим многофункциональным приложением',
+                'windows-description': 'Скоро для Windows PC с расширенными функциями безопасности',
+                'macos-description': 'Скоро для компьютеров Mac с безупречной интеграцией',
+                'linux-description': 'Скоро для систем Linux с совместимостью с открытым исходным кодом',
+                'router-description': 'Скоро для роутеров для защиты всей домашней сети',
+                'coming-soon': 'Скоро',
+                'legal-info': 'Юридическая информация',
+                'privacy-policy': 'Политика конфиденциальности',
+                'terms-of-use': 'Условия использования',
+                'cookie-policy': 'Политика использования файлов cookie',
+                'support': 'Поддержка',
+                'help-center': 'Центр помощи',
+                'faq': 'Часто задаваемые вопросы (скоро)',
+                'installation-guide': 'Руководство по установке (скоро)',
+                'payment-methods': 'Способы оплаты',
+                'copyright': '© 2025 Chupapi Munyanya VPN. Все права защищены.',
+                'contact-us': 'Связаться с нами',
+                'email': 'Email: support@chpnvpn.com',
+                'telegram': 'Telegram: t.me/chpnvpn',
+                'aml-kyc-policy': 'Политика AML/KYC',
+                'contacts': 'Контакты'
+            },
+            'en': {
+                'nav-home': 'Home',
+                'nav-pricing': 'Pricing',
+                'hero-title': 'Secure <span>VPN Solution</span>',
+                'hero-description': 'Advanced protection based on VLESS and Shadowsocks technologies for your privacy',
+                'badge-no-logs': 'No Logging',
+                'badge-high-speed': 'High-Speed Servers',
+                'badge-encryption': '256-bit Encryption',
+                'badge-stability': 'Server Stability',
+                'download-title': 'Download our <span>apps</span>',
+                'download-description': 'Protect your connection on any device with our user-friendly applications',
+                'ios-description': 'Secure browsing on iPhone and iPad with our convenient app',
+                'android-description': 'Protection for your Android devices with our feature-rich application',
+                'windows-description': 'Coming soon for Windows PC with advanced security features',
+                'macos-description': 'Coming soon for Mac computers with seamless integration',
+                'linux-description': 'Coming soon for Linux systems with open-source compatibility',
+                'router-description': 'Coming soon for routers to protect your entire home network',
+                'coming-soon': 'Coming Soon',
+                'legal-info': 'Legal Information',
+                'privacy-policy': 'Privacy Policy',
+                'terms-of-use': 'Terms of Use',
+                'cookie-policy': 'Cookie Policy',
+                'support': 'Support',
+                'help-center': 'Help Center',
+                'faq': 'FAQ (coming soon)',
+                'installation-guide': 'Installation Guide (coming soon)',
+                'payment-methods': 'Payment Methods',
+                'copyright': '© 2025 Chupapi Munyanya VPN. All rights reserved.',
+                'contact-us': 'Contact Us',
+                'email': 'Email: support@chpnvpn.com',
+                'telegram': 'Telegram: t.me/chpnvpn',
+                'aml-kyc-policy': 'AML/KYC Policy',
+                'contacts': 'Contacts'
+            }
+        };
+
+        // Function to switch language
+        function switchLanguage(lang) {
+            const elements = document.querySelectorAll('[data-lang-key]');
+            
+            elements.forEach(element => {
+                const key = element.getAttribute('data-lang-key');
+                if (translations[lang] && translations[lang][key]) {
+                    // Add animation classes
+                    element.classList.add('lang-switch-out');
+                    
+                    setTimeout(() => {
+                        // If the content contains HTML, use innerHTML, otherwise use textContent
+                        if (translations[lang][key].includes('<')) {
+                            element.innerHTML = translations[lang][key];
+                        } else {
+                            element.textContent = translations[lang][key];
+                        }
+                        
+                        element.classList.remove('lang-switch-out');
+                        element.classList.add('lang-switch-in');
+                        
+                        setTimeout(() => {
+                            element.classList.remove('lang-switch-in');
+                        }, 500);
+                    }, 300);
+                }
+            });
+            
+            // Update language toggle button
+            const langToggle = document.querySelector('.lang-toggle');
+            langToggle.textContent = lang.toUpperCase();
+            langToggle.setAttribute('data-lang', lang);
+            
+            // Store the selected language in localStorage
+            localStorage.setItem('language', lang);
+            
+            // Update html lang attribute
+            document.documentElement.lang = lang;
+            
+            // Update active state for language buttons
+            document.querySelectorAll('.lang-toggle').forEach(btn => {
+                if (btn.getAttribute('data-lang') === lang) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+        }
+
+        // Language toggle functionality
+        const langToggle = document.querySelector('.lang-toggle');
+        langToggle.addEventListener('click', () => {
+            const currentLang = langToggle.getAttribute('data-lang');
+            const newLang = currentLang === 'ru' ? 'en' : 'ru';
+            switchLanguage(newLang);
+        });
+
+        // Theme toggle functionality
+        const themeToggle = document.querySelector('.theme-toggle');
+        const themeIcon = document.querySelector('.theme-icon');
+        
+        // Check saved theme preferences or use preferred color scheme
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        
+        // Set initial theme
+        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+            document.body.classList.add('dark-theme');
+            themeIcon.textContent = '🌙';
+        }
+        
+        // Toggle theme
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-theme');
+            
+            if (document.body.classList.contains('dark-theme')) {
+                themeIcon.textContent = '🌙';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                themeIcon.textContent = '☀️';
+                localStorage.setItem('theme', 'light');
+            }
+            
+            // Add rotation animation
+            themeIcon.style.transform = 'rotate(360deg)';
+            setTimeout(() => {
+                themeIcon.style.transform = 'rotate(0)';
+            }, 300);
+        });
+
+        // Check saved language preference
+        const savedLanguage = localStorage.getItem('language');
+        if (savedLanguage) {
+            switchLanguage(savedLanguage);
+        } else {
+            // Set default language based on browser language
+            const browserLang = navigator.language.split('-')[0];
+            if (browserLang === 'ru') {
+                switchLanguage('ru');
+            } else {
+                switchLanguage('en');
+            }
+        }
+    </script>
+</body>
+</html>
