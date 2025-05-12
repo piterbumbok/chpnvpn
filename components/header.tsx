@@ -24,7 +24,7 @@ export default function Header() {
   // Если компонент не смонтирован, возвращаем заглушку для предотвращения проблем с гидратацией
   if (!mounted) {
     return (
-      <header className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
+      <header className="bg-white dark:bg-gray-950 border-b border-gray-200 dark:border-gray-900">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <div className="flex items-center">
             <div className="w-8 h-8 relative mr-2"></div>
@@ -40,11 +40,11 @@ export default function Header() {
   }
 
   return (
-    <header className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
+    <header className="bg-white dark:bg-gray-950 border-b border-gray-200 dark:border-gray-900">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <Link href="/" className="flex items-center">
           <div className="w-8 h-8 relative mr-2">
-            <Image src="https://chpnvpn.com/logotg.png" alt="Chupapi Munyanya Logo" width={32} height={32} />
+            <Image src="/logo.png" alt="Chupapi Munyanya Logo" width={32} height={32} />
           </div>
           <span className="text-lg font-medium text-gray-900 dark:text-white">Chupapi Munyanya</span>
         </Link>
@@ -53,7 +53,7 @@ export default function Header() {
           <LanguageSwitcher />
           <button
             onClick={toggleTheme}
-            className="w-10 h-10 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
+            className="w-10 h-10 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-900 rounded-lg transition-colors"
             aria-label={theme === "light" ? "Switch to dark theme" : "Switch to light theme"}
           >
             {theme === "light" ? <Moon size={20} /> : <Sun size={20} />}

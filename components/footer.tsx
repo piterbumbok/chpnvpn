@@ -18,7 +18,7 @@ export default function Footer() {
   }
 
   return (
-    <footer className="bg-white dark:bg-gray-900 py-12 border-t border-gray-200 dark:border-gray-800">
+    <footer className="bg-white dark:bg-gray-950 py-12 border-t border-gray-200 dark:border-gray-900">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
@@ -74,16 +74,16 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-medium mb-4">{t("footer.payment")}</h3>
             <div className="flex flex-wrap gap-2">
-              <div className="border border-gray-200 dark:border-gray-700 rounded px-3 py-1 text-sm text-gray-600 dark:text-gray-400">
+              <div className="border border-gray-200 dark:border-gray-800 rounded px-3 py-1 text-sm text-gray-600 dark:text-gray-400">
                 Visa
               </div>
-              <div className="border border-gray-200 dark:border-gray-700 rounded px-3 py-1 text-sm text-gray-600 dark:text-gray-400">
+              <div className="border border-gray-200 dark:border-gray-800 rounded px-3 py-1 text-sm text-gray-600 dark:text-gray-400">
                 MasterCard
               </div>
-              <div className="border border-gray-200 dark:border-gray-700 rounded px-3 py-1 text-sm text-gray-600 dark:text-gray-400">
+              <div className="border border-gray-200 dark:border-gray-800 rounded px-3 py-1 text-sm text-gray-600 dark:text-gray-400">
                 PayPal
               </div>
-              <div className="border border-gray-200 dark:border-gray-700 rounded px-3 py-1 text-sm text-gray-600 dark:text-gray-400">
+              <div className="border border-gray-200 dark:border-gray-800 rounded px-3 py-1 text-sm text-gray-600 dark:text-gray-400">
                 Bitcoin
               </div>
             </div>
